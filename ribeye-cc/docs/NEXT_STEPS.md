@@ -4,7 +4,9 @@
 
 本人要求先取消公開，待完整編輯後再公開。根目錄 `.github/workflows/pages.yml` 的 Pages 產物上傳與 deploy job 均設為 `if: ${{ false }}`，保留建置與檢查；即使推送或手動執行也不會發布。
 
-停用 workflow 部署不會移除既有網站。管理者仍須以 `cjzrv` 到 repository → Settings → Pages，在「Your site is live at」旁的選單選 **Unpublish site**。這會移除目前部署並保留內容與設定。後續僅在本人明確要求重新公開時，恢復產物上傳與 deploy 的原有條件，再推送或執行 workflow。編輯與預覽使用本機伺服器。
+本人已以 `cjzrv` 在 Pages 設定選擇 **Unpublish site**，移除目前部署並保留內容與設定。已實測根網址、英文首頁、舊中文首頁、`www` 與 `cjzrv.github.io/homepage/` 共五個入口均回傳 404。暫停發布的 Actions 建置檢查通過，產物上傳與 deploy 均為 skipped。
+
+後續僅在本人明確要求重新公開時，恢復產物上傳與 deploy 的原有條件，再推送或執行 workflow。編輯與預覽使用本機伺服器。
 
 以下為先前上線時的設定紀錄。
 

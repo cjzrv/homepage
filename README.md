@@ -4,7 +4,7 @@
 
 Repository：[cjzrv/homepage](https://github.com/cjzrv/homepage)，發布分支為 `main`。
 
-**編輯期間暫停發布。** GitHub Actions 只做檢查，不上傳 Pages 產物或部署。現有線上部署須在 Pages 設定選擇 **Unpublish site** 下線；後續等本人明確要求再恢復發布。
+**編輯期間暫停發布，網站已下線。** GitHub Actions 只做檢查，不上傳 Pages 產物或部署。本人已在 Pages 設定選擇 **Unpublish site**，公開網址已確認回傳 404；後續等本人明確要求再恢復發布。
 
 ```sh
 cd ribeye-cc
