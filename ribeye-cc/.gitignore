@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist.next/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+static-preview/
+static-preview.next/

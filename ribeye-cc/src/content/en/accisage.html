@@ -1,0 +1,25 @@
+<section class="article-section"><h2>Abstract</h2>
+<p>AcciSAGE is a global-to-local framework for spatio-temporal accident grounding in surveillance videos. It uses one open-weight vision-language backbone with task-specific LoRA adapters for temporal, spatial, and collision-type predictions. Supervised fine-tuning (SFT) is followed by error-aware SAPO refinement with task-aligned rewards.</p>
+<figure class="paper-figure"><a href="/images/accisage-overview.jpg" aria-label="Open the full-size method diagram"><img src="/images/accisage-overview.jpg" alt="AcciSAGE method overview diagram" width="4073" height="1167" loading="lazy" decoding="async"></a><figcaption>Global-to-local inference and SFT-to-SAPO refinement. Source: <a href="https://github.com/cjzrv/accisage">AcciSAGE</a>. Select the image to view at full size.</figcaption>
+</figure>
+</section>
+
+<section class="article-section"><h2>Method</h2>
+<ul><li><strong>Temporal:</strong> Ground the accident moment from the full video.</li>
+<li><strong>Spatial:</strong> Estimate the accident center in a localized video context.</li>
+<li><strong>Type:</strong> Predict the collision category.</li>
+</ul>
+</section>
+
+<section class="article-section"><h2>Results</h2>
+<p>Reference results from the public repository on the ACCIDENT IID test set. T₁ is the Gaussian temporal grounding score at σ = 1 second; S is the spatial score, C is collision-type accuracy, and ACCS is their harmonic mean.</p>
+<table class="data-table"><caption>Reference results on the ACCIDENT IID test set</caption><thead><tr><th scope="col">Metric</th><th scope="col">SFT-only</th><th scope="col">AcciSAGE (SAPO)</th></tr>
+</thead>
+<tbody><tr><th scope="row">T₁</th><td>0.5563</td><td><strong>0.5672</strong></td></tr>
+<tr><th scope="row">S</th><td>0.5236</td><td><strong>0.5352</strong></td></tr>
+<tr><th scope="row">C</th><td>0.5382</td><td><strong>0.5493</strong></td></tr>
+<tr><th scope="row">ACCS</th><td>0.5390</td><td><strong>0.5503</strong></td></tr>
+</tbody>
+</table>
+<p class="source-note">Source: <a href="https://github.com/cjzrv/accisage#reference-results">AcciSAGE reference results</a>; <a href="https://github.com/cjzrv/accisage/blob/main/docs/evaluation.md">evaluation protocol</a>.</p>
+</section>

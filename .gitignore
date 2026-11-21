@@ -1,0 +1,21 @@
+# Earlier draft retained locally; the maintained website is ribeye-cc/.
+/academic-home/
+
+# Generated output and local tooling.
+**/node_modules/
+**/dist/
+**/dist.next/
+**/static-preview/
+**/static-preview.next/
+**/.astro/
+**/.preview-build/
+**/.DS_Store
+**/*.log
+**/.env
+**/.env.*
+!**/.env.example
+
+# Private references and local backups are never website source.
+**/private-reference/
+*.tar.gz
+*.zip

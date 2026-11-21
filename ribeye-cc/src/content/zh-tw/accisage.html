@@ -1,0 +1,25 @@
+<section class="article-section"><h2>研究概要</h2>
+<p>AcciSAGE 是一個全域至局部的事故影片時空定位框架，以開放權重視覺語言模型為基底，針對事故時間、事故位置及碰撞類型分別訓練 LoRA adapter。監督式微調（SFT）後，進一步使用 SAPO 及與任務對應的獎勵進行誤差導向精煉。</p>
+<figure class="paper-figure"><a href="/images/accisage-overview.jpg" aria-label="開啟完整尺寸的方法架構圖"><img src="/images/accisage-overview.jpg" alt="AcciSAGE 方法架構圖" width="4073" height="1167" loading="lazy" decoding="async"></a><figcaption>全域至局部推論與 SFT 至 SAPO 精煉。來源：<a href="https://github.com/cjzrv/accisage">AcciSAGE</a>. 點選圖片可檢視原圖。</figcaption>
+</figure>
+</section>
+
+<section class="article-section"><h2>方法</h2>
+<ul><li><strong>Temporal:</strong> 從完整影片定位事故發生時間。</li>
+<li><strong>Spatial:</strong> 從局部時間範圍估計事故中心位置。</li>
+<li><strong>Type:</strong> 判斷事故碰撞類型。</li>
+</ul>
+</section>
+
+<section class="article-section"><h2>實驗結果</h2>
+<p>公開程式庫列出 ACCIDENT IID 測試集之參考結果。T₁ 為 σ = 1 秒的高斯時間定位分數，S 為空間分數，C 為事故類型正確率，ACCS 為三者的調和平均。</p>
+<table class="data-table"><caption>ACCIDENT IID 測試集參考結果</caption><thead><tr><th scope="col">指標</th><th scope="col">SFT-only</th><th scope="col">AcciSAGE (SAPO)</th></tr>
+</thead>
+<tbody><tr><th scope="row">T₁</th><td>0.5563</td><td><strong>0.5672</strong></td></tr>
+<tr><th scope="row">S</th><td>0.5236</td><td><strong>0.5352</strong></td></tr>
+<tr><th scope="row">C</th><td>0.5382</td><td><strong>0.5493</strong></td></tr>
+<tr><th scope="row">ACCS</th><td>0.5390</td><td><strong>0.5503</strong></td></tr>
+</tbody>
+</table>
+<p class="source-note">來源：<a href="https://github.com/cjzrv/accisage#reference-results">AcciSAGE reference results</a>; <a href="https://github.com/cjzrv/accisage/blob/main/docs/evaluation.md">評估設定</a>.</p>
+</section>

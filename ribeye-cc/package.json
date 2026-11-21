@@ -1,0 +1,19 @@
+{
+  "name": "ribeye-cc",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs --watch",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "test:site": "node scripts/check-site.mjs",
+    "test": "node --test",
+    "verify": "npm run check && npm run build && npm run test:site && npm test",
+    "preview:static": "node scripts/build.mjs --outDir static-preview"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
