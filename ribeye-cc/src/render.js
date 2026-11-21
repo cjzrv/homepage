@@ -125,8 +125,8 @@ export function detailPage(lang, work, article) {
 }
 
 export function notFoundPage() {
-  return layout({ lang: 'en', route: '/404', title: 'Page not found', noindex: true }, `
-    <h1>Page not found</h1>
-    <p>The address may have changed. You can return to the <a href="/">homepage</a> or browse <a href="/research/">research</a> and <a href="/projects/">software</a>.</p>
-    <section lang="zh-Hant-TW"><h2>找不到此頁面</h2><p>網址可能已變更。請返回<a href="/zh-tw/">中文首頁</a>，或瀏覽<a href="/zh-tw/research/">研究與論文</a>及<a href="/zh-tw/projects/">軟體專案</a>。</p></section>`);
+  return layout({ lang: 'zh-tw', route: '/404', title: '找不到此頁面', noindex: true }, `
+    <h1>找不到此頁面</h1>
+    <p>網址可能已變更。請返回<a href="/">中文首頁</a>，或瀏覽<a href="/zh-tw/research/">研究與論文</a>及<a href="/zh-tw/projects/">軟體專案</a>。</p>
+    <section lang="en"><h2>Page not found</h2><p>The address may have changed. You can return to the <a href="/en/">English homepage</a> or browse <a href="/research/">research</a> and <a href="/projects/">software</a>.</p></section>`);
 }

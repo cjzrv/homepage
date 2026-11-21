@@ -23,7 +23,11 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   pages.set(route,await readFile(file,'utf8'));
 }
 const expectedRoutes = siteRoutes.flatMap(route => ['en','zh-tw'].map(lang => localUrl(route,lang)));
-assert.deepEqual(new Set(pages.keys()),new Set([...expectedRoutes,'/404.html']),'Every bilingual route and the custom 404 must be built');
+assert.deepEqual(new Set(pages.keys()),new Set([...expectedRoutes,'/zh-tw/','/404.html']),'Every bilingual route, legacy Chinese homepage and custom 404 must be built');
+assert.match(pages.get('/'), /<html lang="zh-Hant-TW">/, 'The root homepage defaults to Traditional Chinese');
+assert.match(pages.get('/'), /我是莊淳傑/, 'The root homepage contains Chinese content');
+assert.match(pages.get('/en/'), /<html lang="en">/, 'The English homepage remains available');
+assert.match(pages.get('/en/'), /I am Chun-Jie Zhuang/, 'The English homepage contains English content');
 const fail = (route,message) => `${route}: ${message}`;
 for (const [route,html] of pages) {
   assert.ok(!/data-astro|\/_astro\//.test(html),fail(route,'no framework runtime or generated framework assets'));
@@ -69,19 +73,20 @@ for (const [route,html] of pages) {
   const noindex=metadata.some(tag => attr(tag,'name')==='robots' && attr(tag,'content')?.includes('noindex'));
   if (route==='/404.html') { assert.ok(noindex,'404 must not be indexed'); continue; }
   assert.ok(!noindex,fail(route,'public content must be indexable'));
-  const language=route.startsWith('/zh-tw/')?'zh-Hant-TW':'en';
+  const language=route==='/' || route.startsWith('/zh-tw/')?'zh-Hant-TW':'en';
   assert.equal(attr(tags(html,'html')[0],'lang'),language,fail(route,'document language'));
   const links=tags(html,'link');
-  assert.equal(attr(links.find(tag=>attr(tag,'rel')==='canonical')||'','href'),origin+route,fail(route,'canonical URL'));
-  const counterpart=route.startsWith('/zh-tw/')?route.replace(/^\/zh-tw/,''):'/zh-tw'+route;
+  const canonicalRoute=route==='/zh-tw/'?'/':route;
+  assert.equal(attr(links.find(tag=>attr(tag,'rel')==='canonical')||'','href'),origin+canonicalRoute,fail(route,'canonical URL'));
+  const counterpart=route==='/' || route==='/zh-tw/'?'/en/':route==='/en/'?'/':route.startsWith('/zh-tw/')?route.replace(/^\/zh-tw/,''):'/zh-tw'+route;
   const alternateLang=language==='en'?'zh-Hant-TW':'en';
   assert.equal(attr(links.find(tag=>attr(tag,'hreflang')===alternateLang)||'','href'),origin+counterpart,fail(route,'alternate language metadata'));
   assert.ok(tags(html,'a').some(tag=>attr(tag,'class')==='nav-language' && attr(tag,'href')===counterpart),fail(route,'language switch preserves page'));
-  assert.ok(links.some(tag=>attr(tag,'hreflang')==='x-default'),fail(route,'default language'));
+  assert.equal(attr(links.find(tag=>attr(tag,'hreflang')==='x-default')||'','href'),origin+(language==='en'?counterpart:canonicalRoute),fail(route,'Chinese is the default language'));
 }
 const sitemap=await readFile(path.join(root,'sitemap.xml'),'utf8');
 const locations=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>new URL(match[1]).pathname);
-assert.deepEqual(new Set(locations),new Set([...pages.keys()].filter(route=>route!=='/404.html')),'Sitemap covers every indexable page');
+assert.deepEqual(new Set(locations),new Set(expectedRoutes),'Sitemap covers canonical bilingual pages without duplicating the legacy homepage');
 assert.ok(!files.some(file => /\.pdf$/i.test(file)),'Private PDFs must stay outside the public output');
 assert.ok(!files.some(file => file.includes(`${path.sep}_astro${path.sep}`)),'No retired framework output');
 assert.ok(!pages.get('/projects/dldr/').includes('<img'),'DLDR must not embed the unsuitable repository screenshot');

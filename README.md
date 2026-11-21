@@ -10,7 +10,7 @@ npm run verify
 npm run preview
 ```
 
-開啟 http://127.0.0.1:4321/；繁體中文為 `/zh-tw/`。不需要 `npm install`。
+開啟 http://127.0.0.1:4321/，預設繁體中文；英文首頁為 `/en/`，既有 `/zh-tw/` 中文入口仍可使用。不需要 `npm install`。
 
 - [開發與內容編輯說明](ribeye-cc/README.md)
 - [驗證紀錄](ribeye-cc/docs/VALIDATION.md)

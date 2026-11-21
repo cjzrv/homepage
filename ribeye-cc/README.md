@@ -12,7 +12,7 @@ Node.js 只在開發與建置時使用。GitHub Pages 收到的是普通 HTML、
 npm run dev
 ```
 
-首次產生頁面後啟動 http://127.0.0.1:4321/，預設英文；`/zh-tw/` 為繁體中文。儲存 `src/` 或 `public/` 內容時會自動重新建置，**重新整理瀏覽器**即可查看。沒有注入 live-reload 或 WebSocket 腳本。
+首次產生頁面後啟動 http://127.0.0.1:4321/，根網址直接顯示繁體中文，英文首頁為 `/en/`。既有 `/zh-tw/` 中文入口保留，canonical 指向 `/`；研究、軟體與履歷的中英文網址維持原樣。儲存 `src/` 或 `public/` 內容時會自動重新建置，**重新整理瀏覽器**即可查看。沒有注入 live-reload 或 WebSocket 腳本。
 
 ```sh
 npm run verify
@@ -57,4 +57,4 @@ AcciSAGE 保持碩士研究／manuscript 身分；[正式碩士論文典藏](htt
 
 目前的網址設計針對 `ribeye.cc` 根目錄，亦可直接用 `<帳號>.github.io` 個人 Pages 根站。一般專案 Pages 的 `/<repository>/` 子路徑需要另外設定路徑；若選一般 repository，請先在 Pages 設定中使用 `ribeye.cc` 作為自訂網域。
 
-Repository 為 [cjzrv/homepage](https://github.com/cjzrv/homepage)，SSH remote 為 `git@github.com:cjzrv/homepage.git`，發布分支為 `main`。推送後仍需確認 Pages 設定與部署結果；DNS 尚未修改。詳見 [docs/NEXT_STEPS.md](docs/NEXT_STEPS.md)。
+Repository 為 [cjzrv/homepage](https://github.com/cjzrv/homepage)，SSH remote 為 `git@github.com:cjzrv/homepage.git`，發布分支為 `main`。`ribeye.cc` 已完成 Pages、DNS 與 HTTPS 設定；推送後仍需確認 Actions 的部署結果。詳見 [docs/NEXT_STEPS.md](docs/NEXT_STEPS.md)。

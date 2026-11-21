@@ -1,5 +1,13 @@
 # 零套件依賴重構驗證 — 2026-11-21
 
+## 預設語言更新 — 2026-11-21
+
+依使用者要求，根網址改為繁體中文，英文首頁移至 `/en/`。保留 `/zh-tw/` 中文首頁別名及既有中英文詳頁網址；同步更新語言切換、canonical、HTML 與 sitemap 的 `x-default`，以及中文優先的 404。現在產生 20 個 HTML 檔（18 個 canonical 內容頁、1 個首頁別名、1 個 404），仍為零套件依賴。
+
+`npm run verify` 通過，包含全部 20 個 HTML 檔的連結／語言標記及原有五組測試；HTTP 測試新增根網址為中文、`/en/` 為英文、雙向首頁切換及 `/zh-tw/` 別名一致性檢查。瀏覽器亦實際從 `/` 點選 English 到 `/en/`，再切回中文根首頁，內容與導覽正常。
+
+使用者已完成 Pages、DNS 與 HTTPS 設定；先前 README 發布所留下的 CDN 快取已於本日 11:17 前確認更新，三種入口均正常。以下為先前重構時的驗證紀錄，部署限制以此更新及最新 Actions 結果為準。
+
 ## 結果
 
 由既有 Astro Academic V2 接續重構為 **HTML/CSS + Node.js 內建功能**。npm 套件由 273 個降為 0 個；沒有 `dependencies`、`devDependencies`、lockfile 或 `node_modules/`。Node.js 只用於產生靜態頁面與本機預覽，沒有伺服器端部署需求。

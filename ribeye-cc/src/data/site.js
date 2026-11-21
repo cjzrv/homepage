@@ -4,6 +4,7 @@ export const tr = (t, language) => t[language];
 export function localUrl(path, language) {
     const normalized = '/' + path.replace(/^\/+|\/+$/g, '');
     const suffix = normalized === '/' ? '/' : normalized + '/';
+    if (suffix === '/') return language === 'en' ? '/en/' : '/';
     return language === 'en' ? suffix : '/zh-tw' + suffix;
 }
 export function alternateUrl(path, language) {

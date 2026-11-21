@@ -27,7 +27,8 @@
 ## 4. 建議資訊架構
 
 ```text
-/                 姓名、學校／研究室、聯絡、簡介、研究興趣、論文與研究、程式專案、學歷
+/                 繁體中文預設首頁
+/en/              英文首頁：姓名、學校／研究室、聯絡、簡介、研究興趣、論文與研究、程式專案、學歷
 /research/        學術論文／研究列表
 /research/accisage/
 /research/pcb-coverage/
@@ -38,6 +39,8 @@
 /about/           學歷、研究經歷、技能、英語能力、聯絡
 /zh-tw/...        繁體中文鏡像
 ```
+
+使用者於 2026-11-21 將預設語言改為繁體中文。`/zh-tw/` 保留為中文首頁別名，canonical 指向 `/`；其餘中英文內容網址不變。雙語頁面及 sitemap 的 `x-default` 指向中文版本。
 
 注意 `/research/` 既有頁內包含研究 manuscript，若導覽寫 Publications，應避免讓讀者誤以為兩項都已正式出版。可改成 `Research` 或 `Research & Publications`，或在列表中清楚區別 publication status。
 

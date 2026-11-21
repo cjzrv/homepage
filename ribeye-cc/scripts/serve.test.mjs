@@ -14,6 +14,19 @@ before(async () => {
 after(async () => { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); });
 
 test('localized routes, canonical redirects, HEAD and custom 404', async () => {
+  const chineseHome = await fetch(origin + '/');
+  assert.equal(chineseHome.status, 200);
+  const chineseHtml = await chineseHome.text();
+  assert.match(chineseHtml, /<html lang="zh-Hant-TW">/);
+  assert.match(chineseHtml, /href="\/en\/" class="nav-language"/);
+  const englishHome = await fetch(origin + '/en/');
+  assert.equal(englishHome.status, 200);
+  const englishHtml = await englishHome.text();
+  assert.match(englishHtml, /<html lang="en">/);
+  assert.match(englishHtml, /href="\/" class="nav-language"/);
+  const oldChineseHome = await fetch(origin + '/zh-tw/');
+  assert.equal(oldChineseHome.status, 200);
+  assert.equal(await oldChineseHome.text(), chineseHtml);
   const redirect = await fetch(origin + '/zh-tw/about?from=test', { redirect: 'manual' });
   assert.equal(redirect.status, 308);
   assert.equal(redirect.headers.get('location'), '/zh-tw/about/?from=test');

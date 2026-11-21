@@ -33,12 +33,14 @@ export async function build(outputDirectory = 'dist') {
         await save(localUrl(`/${work.route}/${work.slug}`, lang), detailPage(lang, work, article));
       }
     }
+    // Keep the existing Chinese homepage URL usable; its canonical points to /.
+    await save('/zh-tw/', homePage('zh-tw'));
     await save('/404.html', notFoundPage());
     const absolute = (route, lang) => new URL(localUrl(route, lang), identity.website).href;
     const entries = siteRoutes.flatMap(route => ['en', 'zh-tw'].map(lang => `<url><loc>${e(absolute(route, lang))}</loc>
       <xhtml:link rel="alternate" hreflang="en" href="${e(absolute(route, 'en'))}"/>
       <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="${e(absolute(route, 'zh-tw'))}"/>
-      <xhtml:link rel="alternate" hreflang="x-default" href="${e(absolute(route, 'en'))}"/></url>`));
+      <xhtml:link rel="alternate" hreflang="x-default" href="${e(absolute(route, 'zh-tw'))}"/></url>`));
     await writeFile(path.join(staging, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`);
     await writeFile(path.join(staging, '.nojekyll'), '');
     await rm(output, { recursive: true, force: true });

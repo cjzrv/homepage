@@ -12,6 +12,7 @@ The owner deliberately prefers the look of a traditional professor's personal ac
 - Do not reintroduce hero illustrations, badges, bento layouts, colorful project cards, gradients, blur effects, decorative icons, counters, animation, dark mode, or heavy JavaScript.
 - Show only real academic figures/tables in article detail pages, with captions.
 - Preserve English and Traditional Chinese variants, keyboard accessibility, mobile readability, and useful metadata.
+- Traditional Chinese is the default: `/` is the Chinese homepage and `/en/` is the English homepage. Preserve `/zh-tw/` as a Chinese homepage alias with canonical `/`; keep existing inner-page URLs and use Chinese counterparts for `x-default` metadata.
 - AcciSAGE is graduate research/manuscript with public implementation, not an asserted formally published paper.
 - PCB study is a 2024 Minghsin Journal publication. Its source experiment uses 1,000 randomly generated triangles and scale-dependent comparisons; do not invent benchmarks.
 - The GitHub owners `cjzrv` and `ribeye0` are both associated with this person's work; keep repository links stable.

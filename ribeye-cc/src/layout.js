@@ -35,7 +35,7 @@ export function layout({ lang, title, description, current = 'home', route = '/'
   ${noindex ? '' : `<link rel="canonical" href="${e(canonical)}">
   <link rel="alternate" hreflang="en" href="${e(zh ? alternate : canonical)}">
   <link rel="alternate" hreflang="zh-Hant-TW" href="${e(zh ? canonical : alternate)}">
-  <link rel="alternate" hreflang="x-default" href="${e(new URL(localUrl(route, 'en'), identity.website).href)}">`}
+  <link rel="alternate" hreflang="x-default" href="${e(new URL(localUrl(route, 'zh-tw'), identity.website).href)}">`}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/styles.css">
   <title>${e(pageTitle)}</title>

@@ -13,7 +13,7 @@
 | GitHub 帳號 1 | https://github.com/cjzrv | 使用者說明為另一帳號 |
 | GitHub 帳號 2 | https://github.com/ribeye0 | 使用者之前提供 |
 | TOEIC | Listening & Reading **780 / 990** | 使用者確認；考試日期未知 |
-| 網頁語言 | English 預設，繁體中文第二語言 | 使用者認可的既有規劃 |
+| 網頁語言 | 繁體中文預設（`/`），保留英文（首頁 `/en/`）及既有 `/zh-tw/` 入口 | 使用者於 2026-11-21 更新 |
 
 使用真實姓名做為主識別，不使用 `ribeye` 取代正式姓名；`ribeye.cc` 是網域名稱。
 
