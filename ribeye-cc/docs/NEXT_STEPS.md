@@ -1,5 +1,13 @@
 # GitHub Pages 發布準備
 
+## 暫停發布 — 2026-11-21
+
+本人要求先取消公開，待完整編輯後再公開。根目錄 `.github/workflows/pages.yml` 的 Pages 產物上傳與 deploy job 均設為 `if: ${{ false }}`，保留建置與檢查；即使推送或手動執行也不會發布。
+
+停用 workflow 部署不會移除既有網站。管理者仍須以 `cjzrv` 到 repository → Settings → Pages，在「Your site is live at」旁的選單選 **Unpublish site**。這會移除目前部署並保留內容與設定。後續僅在本人明確要求重新公開時，恢復產物上傳與 deploy 的原有條件，再推送或執行 workflow。編輯與預覽使用本機伺服器。
+
+以下為先前上線時的設定紀錄。
+
 本機重構已完成並推送 [cjzrv/homepage](https://github.com/cjzrv/homepage)。SSH remote 為 `git@github.com:cjzrv/homepage.git`，發布分支為 `main`。使用者已完成 Pages、Spaceship DNS 與 Enforce HTTPS 設定；網站已於 `https://ribeye.cc/` 上線。後續每次推送仍需確認 Actions 的部署結果。
 
 ## Repository 與推送

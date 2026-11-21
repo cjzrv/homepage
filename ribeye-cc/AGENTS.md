@@ -32,3 +32,5 @@ The owner requested removal of unnecessary frameworks on 2026-11-21. This is now
 - Preserve GitHub Pages directory routes, bilingual counterparts, the custom 404, sitemap, robots and `CNAME` for `ribeye.cc`. Do not add build-only source or private reference files to output.
 
 Current verification and deployment limits are recorded in `docs/VALIDATION.md` and `docs/NEXT_STEPS.md`.
+
+The owner requested unpublishing while editing on 2026-11-21. The root workflow currently disables Pages artifact upload and deployment with `if: ${{ false }}` while keeping validation enabled. Do not restore public deployment until the owner explicitly asks to publish again. Local preview remains available.

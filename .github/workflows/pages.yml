@@ -1,4 +1,4 @@
-name: Build and deploy ribeye.cc
+name: Check ribeye.cc (publishing paused)
 
 on:
   push:
@@ -30,12 +30,14 @@ jobs:
       - name: Check, build and test (no dependency installation)
         run: npm run verify
       - uses: actions/upload-pages-artifact@v4
-        if: github.event_name != 'pull_request'
+        # Owner requested the site remain unpublished while editing.
+        if: ${{ false }}
         with:
           path: ribeye-cc/dist
 
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    # Restore publication only after the owner explicitly asks to publish again.
+    if: ${{ false }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
