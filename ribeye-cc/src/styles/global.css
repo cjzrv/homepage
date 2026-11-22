@@ -14,11 +14,14 @@ button { font: inherit; }
 .skip-link { position: absolute; left: -9999px; top: 8px; }
 .skip-link:focus { left: 12px; z-index: 10; background: #fff; padding: 8px; }
 .site-header { padding-top: 46px; }
+.header-profile { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 20px; }
+.header-details { flex: 1; min-width: 0; }
+.profile-photo { display: block; flex: none; width: 160px; height: auto; }
 .header-name { font-size: 2.15rem; font-weight: 600; letter-spacing: -.025em; margin: 0 0 2px; line-height: 1.2; }
 .header-name a, .header-name a:visited { color: inherit; text-decoration: none; }
 .header-native { color: #666; font-size: 1.04rem; margin: 0 0 10px; }
 .header-affiliation { font-size: .98rem; margin: 0; line-height: 1.52; }
-.header-contacts { font-size: .94rem; margin: 8px 0 20px; display: flex; flex-wrap: wrap; gap: 2px 18px; }
+.header-contacts { font-size: .94rem; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 2px 18px; }
 .plain-nav { border-top: 1px solid #bdbdbd; border-bottom: 1px solid #d8d8d8; padding: 8px 0; display: flex; flex-wrap: wrap; gap: 2px 22px; font-size: .97rem; }
 .plain-nav a { padding: 3px 0; }
 .plain-nav a[aria-current='page'] { font-weight: 700; color: #171717; }
@@ -31,6 +34,7 @@ h2 { font-size: 1.29rem; font-weight: 600; margin: 31px 0 11px; border-bottom: 1
 h3 { font-size: 1.08rem; margin: 0 0 3px; font-weight: 600; }
 p { margin: 0 0 13px; }
 .small { font-size: .91rem; }
+.toeic-score { font-size: 1.125rem; }
 .home-intro { margin: 0 0 24px; }
 .home-intro p { margin-bottom: 10px; }
 .interests { margin: 4px 0 0; }
@@ -92,6 +96,8 @@ figcaption { margin-top: 6px; font-size: .875rem; color: #555; }
 @media (max-width: 600px) {
   .container { width: calc(100% - 32px); }
   .site-header { padding-top: 22px; }
+  .header-profile { flex-direction: column-reverse; gap: 16px; }
+  .profile-photo { width: 128px; }
   .header-name { font-size: 1.86rem; }
   .header-native { margin-bottom: 8px; }
   .plain-nav { column-gap: 14px; font-size: .95rem; }

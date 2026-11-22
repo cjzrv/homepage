@@ -81,4 +81,4 @@ export const researchGroups = [
     { status: 'manuscript', title: bi('Graduate research', '碩士研究') },
     { status: 'published', title: bi('Journal article', '期刊論文') },
 ];
-export const siteRoutes = ['/', '/research/', ...research.map(work => `/research/${work.slug}/`), '/projects/', ...projects.map(work => `/projects/${work.slug}/`), '/about/'];
+export const siteRoutes = ['/', '/research/', ...research.map(work => `/research/${work.slug}/`), '/projects/', ...projects.map(work => `/projects/${work.slug}/`), '/projects/linecover/demo/', '/about/'];

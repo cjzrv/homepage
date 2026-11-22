@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "raylib": "6.0",
+  "raylibCommit": "dbc56a87da87d973a9c5baa4e7438a9d20121d28",
+  "emscripten": "4.0.20",
+  "sourceHashes": {
+    "linecover/CMakeLists.txt": "aae742d9f2e3c8e4561dc67e629991ea2309a9583f0cf67e8f7fa7df13cb6acc",
+    "linecover/include/linecover/core.hpp": "fe6e3697424fa6619a91840a55896ee95b2057edd3187de37627b1f1bad4a222",
+    "linecover/src/core.cpp": "7c6e187d0e390d11a78e64a14faf9017b782ba746f96e306c3d86bf589831b58",
+    "linecover/src/viewer.cpp": "d9a6d9f07c8abb1f86a23feb26be7f8d7096ceb7aec3fcdfc128481d1d296fab"
+  },
+  "assetHashes": {
+    "linecover.js": "f3bfe055027d181bcd710d8ad614cb7e225a4c9bcf190bec83366b74fe17e634",
+    "linecover.wasm": "49116cc4bbc3f3e8854693508e22c5ca13074cc665966dafb3653dbf03d1c611"
+  }
+}

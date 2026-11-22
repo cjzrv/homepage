@@ -38,8 +38,8 @@ export function homePage(lang) {
     ${section(zh ? '研究興趣' : 'Research interests', `<p class="interests">${e(tr(profile.interests, lang))}</p>`)}
     ${section(zh ? '研究與論文' : 'Research and publications', `${researchEntries(lang)}<p class="small">${link(localUrl('/research', lang), zh ? '研究成果與實驗詳情' : 'Research details and experimental results')}</p>`)}
     ${section(zh ? '軟體作品' : 'Software', list(projects.map(work => workEntry(work, lang))))}
-    ${section(zh ? '學歷' : 'Education', `<ul class="simple-timeline">${profile.education.map(item => `<li><span class="date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong> — ${e(tr(item.shortDegree, lang))}</li>`).join('')}</ul>
-      <p class="small">${e(zh ? `多益 TOEIC 聽力與閱讀：${profile.toeic}。` : `TOEIC Listening & Reading: ${profile.toeic}.`)} ${link(localUrl('/about', lang), zh ? '完整履歷' : 'Full CV')}</p>`)}
+    ${section(zh ? '學歷' : 'Education', `<ul class="simple-timeline">${profile.education.map(item => `<li><span class="date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong>${tr(item.shortDegree, lang) ? ` — ${e(tr(item.shortDegree, lang))}` : ''}</li>`).join('')}</ul>
+      <p><span class="toeic-score" lang="en">TOEIC Listening &amp; Reading: <strong>${e(profile.toeic)}</strong>.</span> <span class="small">${link(localUrl('/about', lang), zh ? '完整履歷' : 'Full CV')}</span></p>`)}
     ${section(zh ? '聯絡方式' : 'Contact', `<p>${zh ? '電子郵件' : 'Email'}: ${emailLink()}</p>`)}`;
   return layout({ lang, current: 'home' }, body);
 }
@@ -66,7 +66,7 @@ export function aboutPage(lang) {
       <p>${e(zh ? '莊淳傑（Chun-Jie Zhuang）。人工智慧研究、演算法與軟體工程。' : 'Chun-Jie Zhuang (莊淳傑). Artificial intelligence research, algorithms, and software engineering.')}</p>
       <p class="small"><button type="button" class="text-action" data-print>${zh ? '[列印／另存為 PDF]' : '[Print / Save as PDF]'}</button></p>
     </div>
-    ${section(zh ? '學歷' : 'Education', `<ul class="cv-list">${profile.education.map(item => `<li><span class="cv-date">${e(item.period)}</span><br><strong>${e(tr(item.institution, lang))}</strong><br>${e(tr(item.degree, lang))}${item.lab ? `<br>${e(tr(item.lab, lang))}` : ''}</li>`).join('')}</ul>`)}
+    ${section(zh ? '學歷' : 'Education', `<ul class="cv-list">${profile.education.map(item => `<li><span class="cv-date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong>${tr(item.degree, lang) ? ` — ${e(tr(item.degree, lang))}` : ''}</li>`).join('')}</ul>`)}
     ${section(zh ? '論文與研究' : 'Research', `<ul class="cv-list">
       <li><strong>AcciSAGE</strong> (${e(accisage.year)}). ${e(zh ? '碩士論文與研究稿件，附公開參考實作。' : 'Master’s thesis and research manuscript with a public reference implementation.')} ${link(detailsUrl(accisage, lang), zh ? '[詳情]' : '[details]')}${accisage.thesis ? ` ${link(accisage.thesis.href, zh ? '[碩士論文]' : '[master’s thesis]')}` : ''}${accisage.video ? ` ${link(`${detailsUrl(accisage, lang)}#video`, zh ? '[研究介紹影片]' : '[research video]')}` : ''}</li>
       <li><strong>${e(workTitle(pcb, lang))}</strong> (${e(pcb.year)}). ${e(zh ? `${tr(pcb.publication.venue, lang)}，${pcb.publication.volume}，${pcb.publication.pages} 頁。` : `${tr(pcb.publication.venue, lang)}, ${pcb.publication.volume}, pp. ${pcb.publication.pages}.`)} ${link(detailsUrl(pcb, lang), zh ? '[詳情]' : '[details]')}</li>

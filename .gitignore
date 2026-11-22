@@ -3,6 +3,7 @@
 
 # Generated output and local tooling.
 **/node_modules/
+/linecover/build/
 **/dist/
 **/dist.next/
 **/static-preview/

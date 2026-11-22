@@ -4,27 +4,29 @@
 </section>
 
 <section class="article-section"><h2>覆蓋方法</h2>
+<p><a href="/zh-tw/projects/linecover/demo/">互動比較兩種覆蓋方法</a>，逐步觀察筆刷尺寸、路徑與角落填補過程。</p>
 <p>方法先利用適當尺寸的筆刷沿多邊形內側覆蓋，再以 V 字形路徑迭代填補角落剩餘區域。</p>
 <figure class="paper-figure"><img src="/images/pcb-v-shape.png" alt="使用逐漸縮小的筆刷，沿 V 字形路徑填滿三角形的角落" width="490" height="299" loading="lazy" decoding="async"><figcaption>V 字形覆蓋法；論文第 5 頁。</figcaption>
 </figure>
 </section>
 
-<section class="article-section"><h2>實驗結果</h2>
+<section class="article-section"><h2 id="results">實驗結果</h2>
 <p>以最小筆刷半徑 1 為基準，隨機產生 1,000 個面積為 10K 平方單位的三角形，再將邊長放大 10 倍與 100 倍（面積為 1M 與 100M）。比較方法為張維恩等人（2020）提出的覆蓋法。兩項指標均是越低越好。</p>
+<p>相較比較方法，三種尺度的覆蓋重疊率降低 <strong>30.90–91.16%</strong>，正規化移動距離降低 <strong>49.55–50.60%</strong>。本研究的重疊率維持在 <strong>152.36–154.98%</strong>，移動比例維持在 <strong>78.14–79.15%</strong>；表中以粗體標示。</p>
 <table class="data-table"><caption>覆蓋重疊率（實際覆蓋面積／有效覆蓋面積）</caption><thead><tr><th scope="col">面積</th><th scope="col">本研究</th><th scope="col">比較方法</th></tr>
 </thead>
-<tbody><tr><th scope="row">10K</th><td>152.36%</td><td>220.50%</td></tr>
-<tr><th scope="row">1M</th><td>154.77%</td><td>578.28%</td></tr>
-<tr><th scope="row">100M</th><td>154.98%</td><td>1753.16%</td></tr>
+<tbody><tr><th scope="row">10K</th><td><strong>152.36%</strong></td><td>220.50%</td></tr>
+<tr><th scope="row">1M</th><td><strong>154.77%</strong></td><td>578.28%</td></tr>
+<tr><th scope="row">100M</th><td><strong>154.98%</strong></td><td>1753.16%</td></tr>
 </tbody>
 </table>
 <table class="data-table"><caption>正規化移動距離（總移動距離／圖形周長）</caption><thead><tr><th scope="col">面積</th><th scope="col">本研究</th><th scope="col">比較方法</th></tr>
 </thead>
-<tbody><tr><th scope="row">10K</th><td>78.14%</td><td>154.90%</td></tr>
-<tr><th scope="row">1M</th><td>79.06%</td><td>159.74%</td></tr>
-<tr><th scope="row">100M</th><td>79.15%</td><td>160.23%</td></tr>
+<tbody><tr><th scope="row">10K</th><td><strong>78.14%</strong></td><td>154.90%</td></tr>
+<tr><th scope="row">1M</th><td><strong>79.06%</strong></td><td>159.74%</td></tr>
+<tr><th scope="row">100M</th><td><strong>79.15%</strong></td><td>160.23%</td></tr>
 </tbody>
 </table>
-<p class="source-note">來源：原論文第 7 頁，表 1 與表 2；以上數值為正規化比例。</p>
+<p class="source-note">來源：原論文第 7 頁，表 1 與表 2；表中數值為正規化比例。上方降低幅度由原表換算：（比較方法 − 本研究）／比較方法 × 100%，範圍為三種面積尺度的最小與最大值。</p>
 <p>相關 C++ 程式實作： <a href="/zh-tw/projects/linecover/">linecover</a>.</p>
 </section>

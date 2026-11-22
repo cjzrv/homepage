@@ -1,0 +1,40 @@
+name: Check linecover core and WebAssembly
+on:
+  push:
+    branches: [main]
+    paths: ['linecover/**', '.github/workflows/linecover.yml']
+  pull_request:
+    paths: ['linecover/**', '.github/workflows/linecover.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and test the headless C++ core
+        run: |
+          cmake -S linecover -B linecover/build/core -DLINECOVER_VIEWER=OFF
+          cmake --build linecover/build/core --parallel 4
+          ctest --test-dir linecover/build/core --output-on-failure
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: ribeye-cc/.nvmrc
+          package-manager-cache: false
+      - name: Install the pinned Emscripten toolchain
+        run: |
+          git clone --depth 1 https://github.com/emscripten-core/emsdk.git "$RUNNER_TEMP/emsdk"
+          "$RUNNER_TEMP/emsdk/emsdk" install 4.0.20
+          "$RUNNER_TEMP/emsdk/emsdk" activate 4.0.20
+      - name: Build the web viewer and validate the website
+        run: |
+          source "$RUNNER_TEMP/emsdk/emsdk_env.sh"
+          bash linecover/scripts/build-web.sh
+          cd ribeye-cc
+          npm run verify
+      # Validation only. Publishing remains disabled in pages.yml.

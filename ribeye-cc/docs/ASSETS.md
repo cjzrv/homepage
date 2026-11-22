@@ -1,5 +1,11 @@
 # Image sources
 
+## Author-provided portrait
+
+- `public/images/profile.jpg`: supplied by the owner on 2026-11-22 as `/home/ev/Pictures/profile_img.jpg` (960 × 960 JPEG). Copied unchanged, with no cropping, retouching or generated edits, as explicitly requested.
+- Displayed on the Chinese and English homepages beside the name and contact information at 160px wide. On narrow screens it appears above the text at 128px wide. The full square image is preserved with automatic height, localized alternative text and explicit intrinsic dimensions.
+- The site remains unpublished while editing; adding this asset does not authorize restoring public deployment.
+
 ## Author-provided research video
 
 - `public/media/accisage-introduction.mp4`: supplied by the owner on 2026-11-21 as `ICRA_video_莊淳傑_0828.mp4` (110.87 seconds, 1280 × 720). The original in Downloads is unchanged. The web copy uses FFmpeg stream copy with `+faststart`, moving the MP4 index to the start without re-encoding the picture or audio.

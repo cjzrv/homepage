@@ -17,10 +17,23 @@
 
 使用真實姓名做為主識別，不使用 `ribeye` 取代正式姓名；`ribeye.cc` 是網域名稱。
 
+使用者於 2026-11-22 提供 `/home/ev/Pictures/profile_img.jpg` 並明確要求將完整原圖加入網站、不裁切。照片放在中英文首頁姓名與聯絡資訊旁，手機版置於文字上方；網站仍維持暫停發布。
+
+首頁學歷下方的 TOEIC 成績依使用者於 2026-11-22 的要求，兩種語言均顯示 `TOEIC Listening & Reading: **780 / 990**.`，分數加粗，成績一行的字體放大為 1.125rem。
+
 ## 2. Education / 學歷
 
-1. **National Taipei University of Technology（國立臺北科技大學）** — 2024–2026。人工智慧科技碩士學位學程，**已畢業並取得碩士學位**。研究室：**Robot Vision Lab（機器人視覺實驗室）**，隸屬資工所，使用者於 2026-11-21 明確更正，公開頁面使用「資工所」簡稱。不要把正式就讀學位寫成「Computer Science M.S.」。
+1. **National Taipei University of Technology（國立臺北科技大學）** — 2024–2026。人工智慧科技碩士學位學程，**已畢業並取得碩士學位**。研究室：**Robot Vision Lab（機器人視覺實驗室）**。使用者於 2026-11-22 的最新自介使用「資工系所屬」寫法，並補充電腦視覺與 UR 系列機械手臂相關研究，取代先前「資工所」的自介寫法。不要把正式就讀學位寫成「Computer Science M.S.」，也不推測機械手臂型號或研究成果。
 2. **Chinese Culture University（中國文化大學）** — 2019–2024。電機工程學系，**已畢業並取得學士學位**。
+3. **National Wu-Ling Senior High School（國立武陵高級中學）** — 2017–2019。使用者於 2026-11-22 要求加入學歷，校名依本人提供寫法呈現；不額外標示畢業資格或科別。
+
+使用者於 2026-11-22 指定首頁與履歷學歷區塊採以下三筆，僅列期間、校名及學程／學系；高中不加「高中」說明或破折號，不另列畢業字樣或研究室：
+
+```text
+2024–2026 國立臺北科技大學 — 人工智慧科技碩士學位學程
+2019–2024 中國文化大學 — 電機工程學系
+2017–2019 國立武陵高級中學
+```
 
 學歷英文寫法可暫用：
 - `M.S. in Artificial Intelligence Technology, National Taipei University of Technology (2024–2026)`
@@ -28,9 +41,11 @@
 
 如需正式學位全銜或學院官方英文名稱，以校方證書／官方文件最後核對；網站可沿用上述簡寫。
 
-**不要在網站正文另外標示休學一年的細節**；2019–2024 是正確的入學到畢業期間。高中不是主要專業履歷項目，目前不列入公開 Education。不要推測高中畢業。
+**不要在網站正文另外標示休學一年的細節**；2019–2024 是正確的入學到畢業期間。高中依使用者最新要求列入 Education，僅呈現校名與期間，不推測畢業資格。
 
 ## 3. Research interests / 研究興趣
+
+使用者於 2026-11-22 更新首頁自介與研究興趣為電腦視覺、多模態語言模型微調（fine-tuning multimodal language models）與影像處理（Image Processing），並強調開發軟體工具以解決日常生活問題。以下 CV 技能欄位仍保留先前明確指定的 Computer Vision、Voice Processing；本次自介修改不自動更換 CV 的研究領域。
 
 使用者於 2026-11-21 確認履歷的技術能力呈現：
 
@@ -43,7 +58,7 @@
 以下為較完整的研究興趣背景；CV 的研究領域以以上新確認內容為準：
 
 - Computer Vision / 電腦視覺
-- Vision-Language Models (VLMs) / 視覺語言模型
+- Fine-tuning and training multimodal language models / 多模態語言模型微調
 - Video Understanding / 影片理解
 - Spatio-Temporal Grounding / 時空定位
 - Computational Geometry and Algorithms / 計算幾何與演算法
@@ -92,15 +107,19 @@
 
 ## 6. 建議英文介紹（可修改，但不要增加無根據的經歷）
 
-> I am Chun-Jie Zhuang, an M.S. graduate in Artificial Intelligence Technology from National Taipei University of Technology. My graduate research at the Robot Vision Lab focused on spatio-temporal accident grounding with vision-language models. I am also interested in computational geometry and building practical software tools.
+> I am Chun-Jie Zhuang, a graduate of the M.S. Program in Artificial Intelligence Technology at National Taipei University of Technology. During my master’s studies, I conducted research on computer vision and UR-series robotic arms at the Robot Vision Lab in the Department of Computer Science and Information Engineering.
+>
+> My research interests include computer vision, fine-tuning multimodal language models, and image processing. I also enjoy building practical software tools to solve problems I encounter in everyday life.
 
 ## 7. 建議繁體中文介紹
 
-> 我是莊淳傑，畢業於國立臺北科技大學人工智慧科技碩士學位學程，曾於 Robot Vision Lab（機器人視覺實驗室）進行視覺語言模型與交通事故影片時空定位研究。我也對計算幾何、演算法設計及實用軟體開發有興趣。
+> 我是莊淳傑，畢業於國立臺北科技大學人工智慧科技碩士學位學程。碩士期間曾於資工系所屬的 Robot Vision Lab（機器人視覺實驗室）從事電腦視覺與 UR 系列機械手臂相關研究。
+>
+> 我的研究興趣包括電腦視覺、多模態語言模型微調與影像處理。此外，我也喜歡開發實用的軟體工具，解決日常生活中遇到的問題。
 
 ## 8. 尚待本人補充（不可自行填寫）
 
 - TOEIC 考試日期及是否希望公開分項成績／證書。
 - 是否有可公開的履歷 PDF 或可重新託管的論文完整本文。碩士論文典藏網址已提供： https://hdl.handle.net/11296/u6rz3a 。
 - 是否有實習／工作經歷（目前沒有提供，**不能杜撰**）。
-- 是否要加入照片（目前沒有要求，也不是此種學術首頁的必要元素）。
+- 個人照片已由本人提供並授權加入首頁，不裁切；素材紀錄見 `ASSETS.md`。

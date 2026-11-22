@@ -48,8 +48,15 @@ for (const [route,html] of pages) {
     assert.ok(attr(img,'src')?.startsWith('/images/'),fail(route,'self-hosted image'));
   }
   const scripts=tags(html,'script');
-  assert.equal(scripts.length,route.endsWith('/about/')?1:0,fail(route,'only CV pages need the print script'));
-  if (scripts.length) assert.equal(attr(scripts[0],'src'),'/print.js',fail(route,'native print handler'));
+  const demo=route.endsWith('/projects/linecover/demo/');
+  assert.equal(scripts.length,route.endsWith('/about/')||demo?1:0,fail(route,'scripts are confined to CV and interactive demo pages'));
+  if (scripts.length) assert.equal(attr(scripts[0],'src'),demo?'/demos/linecover/demo.js':'/print.js',fail(route,'page-specific script'));
+  if (demo) {
+    assert.equal(attr(scripts[0],'type'),'module',fail(route,'demo module'));
+    assert.ok(tags(html,'canvas').some(tag=>attr(tag,'aria-label') && attr(tag,'tabindex')==='0'),fail(route,'accessible canvas'));
+    const wasm=await readFile(path.join(root,'demos/linecover/linecover.wasm'));
+    assert.deepEqual([...wasm.subarray(0,4)],[0,97,115,109],'compiled WebAssembly magic');
+  }
   for (const video of tags(html,'video')) {
     assert.match(video,/\scontrols(?:\s|>)/,fail(route,'native video controls'));
     assert.equal(attr(video,'preload'),'none',fail(route,'video must not preload the full file'));

@@ -33,4 +33,55 @@ The owner requested removal of unnecessary frameworks on 2026-11-21. This is now
 
 Current verification and deployment limits are recorded in `docs/VALIDATION.md` and `docs/NEXT_STEPS.md`.
 
+## Authorized linecover interactive demonstration
+
+The owner explicitly requested a C++/raylib/WebAssembly algorithm reproduction on 2026-11-21.
+The isolated `/projects/linecover/demo/` and `/zh-tw/projects/linecover/demo/` pages may load
+the raylib runtime and provide user-controlled algorithm playback. This is an exception for
+scientific visualization only; preserve the ordinary academic pages and do not add decorative animation.
+The implementation lives in the parent `linecover/` directory. Read `../linecover/README.md` before changing it.
+After changing C++ or its CMake configuration, rebuild with `bash linecover/scripts/build-web.sh`
+from the Git root (Emscripten 4.0.20 activated). Its checked-in web runtime and SHA-256 manifest
+live in `public/demos/linecover/`; `npm run verify` detects stale compiled assets.
+Run headless C++ tests as well as site checks. Preserve the distinction between new per-case
+geometry metrics and the original published statistical tables. Never imply BGI pixel parity.
+
 The owner requested unpublishing while editing on 2026-11-21. The root workflow currently disables Pages artifact upload and deployment with `if: ${{ false }}` while keeping validation enabled. Do not restore public deployment until the owner explicitly asks to publish again. Local preview remains available.
+
+The author corrected corner zig-zag on 2026-11-22: finish one whole side down to the minimum
+brush, then return along the other side from small to large, like a simple Christmas-tree outline.
+This applies to triangles and supported trapezoids. Preserve the original capsule multiset and
+radius recurrence; the previous alternating-side sqrt(k) implementation has been replaced.
+Only reorder/reorient strokes, count every brush-center relocation as lifted travel, and show
+measured before/after totals without promising savings for all shapes.
+
+On 2026-11-22 the owner simplified the demo, then explicitly added a full travel trace.
+The current feature switches are 「逐角折返覆蓋」 (Fill each corner in turn),
+「強調筆劃輪廓」 (Highlight stroke outlines), and 「完整行進軌跡」 (Show full travel path).
+The trace connects brush centers in stroke order, with solid drawing segments and dashed
+lifted transfers, including radius-change relocations. Show only the visited prefix during
+playback; Show all reveals the complete route. Do not add an initial move or a return home.
+Keep playback, case parameters and vertex editing, but do not reintroduce stroke numbering,
+selection lists or fade controls. Exterior vertex labels remain.
+The persisted cornerZigzag JSON field and CLI flag are retained for compatibility.
+
+The drawing metric audit on 2026-11-22 confirmed that drawingRatio excludes lifted travel.
+Keep its UI label explicit and show the raw drawing length and polygon perimeter. Do not
+silently redefine it as total travel: total travel includes drawingLength + liftedLength.
+For triangles the two methods can have identical drawing lengths because reference stamps
+are stationary; corner reordering changes lifted travel, not the preserved drawing strokes.
+
+The demo emphasizes overlap and total travel, highlighting the actual lower value and
+reporting relative differences against B. Do not always highlight A: custom cases can be worse.
+Published-table reductions (30.90–91.16% overlap, 49.55–50.60% normalized travel)
+are derived from the three scale comparisons, not new-case or corner-routing benchmarks.
+
+The demo now has Random triangle / Random trapezoid buttons. Candidates are generated
+locally and validated by both methods in the existing C++ core, with at most 128 attempts.
+Keep the current brush, precision and feature switches; do not select cases based on
+measured advantages or describe these exploratory shapes as the paper’s fixed-area sample.
+
+Playback controls and both method panels now share the `.demo-workspace` section.
+Keep playback immediately above the figures; its toolbar stays sticky only within this
+section (static in short viewports). Instructions, metric definitions and coordinate/JSON
+editing use native details/summary. Preserve all existing controls and computation semantics.

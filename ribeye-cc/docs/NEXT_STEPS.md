@@ -33,7 +33,7 @@
 ## 本機已具備
 
 - Node.js 22+、零 npm 套件依賴，無安裝步驟。
-- 共 20 個 HTML 檔：18 個中英文 canonical 內容頁、保留的 `/zh-tw/` 中文首頁別名及自訂 404；另含 sitemap、robots、CNAME、`.nojekyll`。
+- 共 22 個 HTML 檔：20 個中英文 canonical 內容頁（含 linecover 雙語互動示範）、保留的 `/zh-tw/` 中文首頁別名及自訂 404；另含 sitemap、robots、CNAME、`.nojekyll`。
 - 根網址預設繁體中文，英文首頁為 `/en/`；語言切換及 `x-default` 對應中文預設。
 - 本機預覽伺服器僅為開發用途；GitHub Pages 不需要執行伺服器。
 - 資料、版型與詳頁正文分開維護，沒有第二套預覽原始碼。

@@ -17,5 +17,6 @@ npm run preview
 - [開發與內容編輯說明](ribeye-cc/README.md)
 - [驗證紀錄](ribeye-cc/docs/VALIDATION.md)
 - [GitHub Pages 發布步驟](ribeye-cc/docs/NEXT_STEPS.md)
+- [linecover：C++／raylib／WebAssembly 演算法與視覺化](linecover/README.md)
 
 Git 儲存庫根目錄為本資料夾；`.github/workflows/pages.yml` 會建置 `ribeye-cc/` 並只部署 `ribeye-cc/dist/`。`academic-home/` 是保留在本機的舊草稿，已由 `.gitignore` 排除。

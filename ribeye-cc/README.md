@@ -2,7 +2,7 @@
 
 中英文個人學術網站，保留傳統教授首頁的白底、襯線字體、藍色底線連結與單欄排版。**零 npm 套件依賴**；不需要 Astro、TypeScript、前端框架、模板套件或 npm 安裝步驟。
 
-Node.js 只在開發與建置時使用。GitHub Pages 收到的是普通 HTML、CSS、圖片和 MP4。瀏覽器只在履歷頁載入一小段原生列印 JavaScript；其他頁面沒有頁面腳本，影片使用瀏覽器原生播放器。
+Node.js 只在開發與建置時使用。GitHub Pages 收到 HTML、CSS、圖片、MP4，以及 linecover 示範的 JavaScript／WebAssembly。一般學術頁面沒有頁面腳本；履歷頁有原生列印腳本，獨立互動示範頁才載入 raylib。影片使用瀏覽器原生播放器。
 
 ## 本機使用
 
@@ -24,6 +24,11 @@ npm run preview
 兩種預覽共用預設埠 4321，請勿同時啟動。可加上 `-- --port 4322` 改埠。
 
 ## 編輯內容
+
+linecover 的 C++ 核心、桌面版、WebAssembly 建置與復現範圍見 [../linecover/README.md](../linecover/README.md)。
+中文互動頁為 `/zh-tw/projects/linecover/demo/`，英文為 `/projects/linecover/demo/`；可逐步播放、
+拖曳／編輯頂點、比較兩種方法及匯入匯出案例。已附編譯產物，日常網站建置仍不需要安裝 C++ 工具鏈。
+修改演算法後須重新編譯；`npm run verify` 會檢查來源與編譯產物雜湊。
 
 | 檔案 | 用途 |
 | --- | --- |

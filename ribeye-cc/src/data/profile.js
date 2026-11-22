@@ -3,23 +3,29 @@ import { bi } from './site.js';
 /** Confirmed profile facts shared by the home page and CV. */
 export const profile = {
   introduction: [
-    bi('I am Chun-Jie Zhuang, a graduate of the M.S. Program in Artificial Intelligence Technology at National Taipei University of Technology. I conducted graduate research at the Robot Vision Lab, part of the CSIE Graduate Institute.', '我是莊淳傑，畢業於國立臺北科技大學人工智慧科技碩士學位學程，曾於資工所所屬的 Robot Vision Lab（機器人視覺實驗室）進行電腦視覺研究。'),
-    bi('My interests include computer vision, vision-language models, video understanding, and computational geometry. I also enjoy building software for practical use.', '我的研究興趣包括電腦視覺、視覺語言模型、影片理解及幾何演算法；此外也喜歡開發實際可用的軟體工具。'),
+    bi('I am Chun-Jie Zhuang, a graduate of the M.S. Program in Artificial Intelligence Technology at National Taipei University of Technology. During my master’s studies, I conducted research on computer vision and UR-series robotic arms at the Robot Vision Lab in the Department of Computer Science and Information Engineering.', '我是莊淳傑，畢業於國立臺北科技大學人工智慧科技碩士學位學程。碩士期間曾於資工系所屬的 Robot Vision Lab（機器人視覺實驗室）從事電腦視覺與 UR 系列機械手臂相關研究。'),
+    bi('My research interests include computer vision, fine-tuning multimodal language models, and image processing. I also enjoy building practical software tools to solve problems I encounter in everyday life.', '我的研究興趣包括電腦視覺、多模態語言模型微調與影像處理。此外，我也喜歡開發實用的軟體工具，解決日常生活中遇到的問題。'),
   ],
-  interests: bi('Computer vision; vision-language models; spatio-temporal video grounding; algorithm design; software engineering.', '電腦視覺；視覺語言模型；影片時空定位；演算法設計；軟體工程。'),
+  interests: bi('Computer vision; fine-tuning multimodal language models; image processing.', '電腦視覺；多模態語言模型微調；影像處理。'),
   education: [
     {
       period: '2024–2026',
       institution: bi('National Taipei University of Technology', '國立臺北科技大學'),
-      degree: bi('M.S. in Artificial Intelligence Technology', '人工智慧科技碩士學位學程，碩士畢業'),
-      shortDegree: bi('M.S., Artificial Intelligence Technology', '人工智慧科技碩士'),
-      lab: bi('Robot Vision Lab, CSIE Graduate Institute', '機器人視覺實驗室（Robot Vision Lab），資工所'),
+      degree: bi('M.S. Program in Artificial Intelligence Technology', '人工智慧科技碩士學位學程'),
+      shortDegree: bi('M.S. Program in Artificial Intelligence Technology', '人工智慧科技碩士學位學程'),
+      lab: bi('Robot Vision Lab, Department of Computer Science and Information Engineering', '機器人視覺實驗室（Robot Vision Lab），資工系'),
     },
     {
       period: '2019–2024',
       institution: bi('Chinese Culture University', '中國文化大學'),
-      degree: bi('B.S. in Electrical Engineering', '電機工程學系，學士畢業'),
-      shortDegree: bi('B.S., Electrical Engineering', '電機工程學士'),
+      degree: bi('Department of Electrical Engineering', '電機工程學系'),
+      shortDegree: bi('Department of Electrical Engineering', '電機工程學系'),
+    },
+    {
+      period: '2017–2019',
+      institution: bi('National Wu-Ling Senior High School', '國立武陵高級中學'),
+      degree: bi('', ''),
+      shortDegree: bi('', ''),
     },
   ],
   researchAreas: ['Computer Vision', 'Voice Processing'],

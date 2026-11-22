@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { identity, research, projects, siteRoutes } from '../src/data/site.js';
 import { profile } from '../src/data/profile.js';
 
@@ -11,7 +12,7 @@ async function files(directory) {
   return (await Promise.all((await readdir(directory, { withFileTypes: true })).map(entry => entry.isDirectory() ? files(path.join(directory, entry.name)) : path.join(directory, entry.name)))).flat();
 }
 let count = 0;
-for (const file of [...await files(path.join(root, 'src')), ...await files(path.join(root, 'scripts')), path.join(root, 'public/print.js')]) {
+for (const file of [...await files(path.join(root, 'src')), ...await files(path.join(root, 'scripts')), path.join(root, 'public/print.js'), path.join(root,'public/demos/linecover/demo.js'), path.join(root,'public/demos/linecover/random-shapes.js')]) {
   if (!/\.m?js$/.test(file)) continue;
   const source=await readFile(file,'utf8');
   for (const match of source.matchAll(/(?:from\s+|import\s*\()['"]([^'"]+)['"]/g)) {
@@ -43,4 +44,9 @@ for (const work of [...research, ...projects]) {
 for (const item of profile.education) for (const field of ['institution', 'degree', 'shortDegree']) localized(item[field], `education.${field}`);
 for (const text of profile.introduction) localized(text, 'introduction');
 localized(profile.linuxExperience, 'linuxExperience');
+const demoAssets=path.join(root,'public/demos/linecover');
+const buildInfo=JSON.parse(await readFile(path.join(demoAssets,'build-info.json'),'utf8'));
+const hash=data=>createHash('sha256').update(data).digest('hex');
+for(const [file,expected] of Object.entries(buildInfo.sourceHashes)) assert.equal(hash(await readFile(path.join(root,'..',file))),expected,`${file}: rebuild the WebAssembly demo with linecover/scripts/build-web.sh`);
+for(const [file,expected] of Object.entries(buildInfo.assetHashes)) assert.equal(hash(await readFile(path.join(demoAssets,file))),expected,`${file}: compiled demo asset hash`);
 console.log(`Checked ${count} JavaScript files and bilingual content data (Node built-ins only).`);

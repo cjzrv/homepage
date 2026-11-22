@@ -71,3 +71,19 @@ test('only built files are served; no source files or write methods', async () =
   assert.equal(write.headers.get('allow'), 'GET, HEAD');
   await write.text();
 });
+
+test('interactive demo serves a valid Wasm module with its streaming MIME type', async () => {
+  for (const route of ['/projects/linecover/demo/', '/zh-tw/projects/linecover/demo/']) {
+    const response=await fetch(origin+route);
+    assert.equal(response.status,200);
+    assert.match(await response.text(),/id="demo-canvas"/);
+  }
+  const response=await fetch(origin+'/demos/linecover/linecover.wasm');
+  assert.equal(response.status,200);
+  assert.equal(response.headers.get('content-type'),'application/wasm');
+  assert.ok(WebAssembly.validate(await response.arrayBuffer()));
+  const script=await fetch(origin+'/demos/linecover/linecover.js');
+  assert.equal(script.status,200);
+  assert.match(script.headers.get('content-type'),/javascript/);
+  assert.match(await script.text(),/export default createLinecover/);
+});

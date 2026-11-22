@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { identity, research, projects, siteRoutes, localUrl } from '../src/data/site.js';
 import { homePage, listingPage, aboutPage, detailPage, notFoundPage } from '../src/render.js';
 import { escapeHtml as e } from '../src/html.js';
+import { linecoverDemo } from '../src/linecover-demo.js';
 
 export const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 
@@ -25,6 +26,7 @@ export async function build(outputDirectory = 'dist') {
       pageCount += 1;
     }
     for (const lang of ['en', 'zh-tw']) {
+      await save(localUrl('/projects/linecover/demo', lang), linecoverDemo(lang));
       await save(localUrl('/', lang), homePage(lang));
       await save(localUrl('/about', lang), aboutPage(lang));
       for (const category of ['research', 'projects']) await save(localUrl(`/${category}`, lang), listingPage(lang, category));
