@@ -104,6 +104,11 @@ for (const [route,html] of pages) {
   assert.ok(!/Hao-Chen Gao|Chi-Ming Huang|高浩宸|黃志明/.test(html),fail(route,'PCB author list remains omitted'));
 }
 for (const lang of ['en','zh-tw']) {
+  for (const route of ['/','/research/','/projects/','/research/pcb-coverage/','/projects/linecover/','/about/']) {
+    const href=localUrl('/projects/linecover/demo/',lang);
+    const html=pages.get(localUrl(route,lang));
+    assert.ok(tags(html,'a').some(tag=>attr(tag,'href')===href),fail(localUrl(route,lang),'PCB interactive demo must be directly discoverable'));
+  }
   for (const route of ['/','/research/','/research/accisage/','/about/']) assert.ok(pages.get(localUrl(route,lang)).includes('https://hdl.handle.net/11296/u6rz3a'),'Thesis link must be retained');
   for (const route of ['/','/research/']) {
     const html=pages.get(localUrl(route,lang));

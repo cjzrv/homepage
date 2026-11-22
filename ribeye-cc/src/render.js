@@ -4,7 +4,8 @@ import { escapeHtml as e, link } from './html.js';
 import { layout } from './layout.js';
 
 const detailsUrl = (work, lang) => localUrl(`/${work.route}/${work.slug}`, lang);
-const workLinks = (work, lang) => work.links.map(item => link(item.href, `[${tr(item.label, lang)}]`)).join(' ');
+const demoLink = (work, lang) => work.demoRoute ? link(localUrl(work.demoRoute, lang), lang === 'zh-tw' ? '[互動展示]' : '[Interactive demo]') : '';
+const workLinks = (work, lang) => [demoLink(work, lang), ...work.links.map(item => link(item.href, `[${tr(item.label, lang)}]`))].filter(Boolean).join(' ');
 const emailLink = () => link(`mailto:${identity.email}`, identity.email);
 const list = items => `<ol class="entry-list">${items.join('\n')}</ol>`;
 const section = (title, content) => `<section><h2>${e(title)}</h2>${content}</section>`;
@@ -69,7 +70,7 @@ export function aboutPage(lang) {
     ${section(zh ? '學歷' : 'Education', `<ul class="cv-list">${profile.education.map(item => `<li><span class="cv-date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong>${tr(item.degree, lang) ? ` — ${e(tr(item.degree, lang))}` : ''}</li>`).join('')}</ul>`)}
     ${section(zh ? '論文與研究' : 'Research', `<ul class="cv-list">
       <li><strong>AcciSAGE</strong> (${e(accisage.year)}). ${e(zh ? '碩士論文與研究稿件，附公開參考實作。' : 'Master’s thesis and research manuscript with a public reference implementation.')} ${link(detailsUrl(accisage, lang), zh ? '[詳情]' : '[details]')}${accisage.thesis ? ` ${link(accisage.thesis.href, zh ? '[碩士論文]' : '[master’s thesis]')}` : ''}${accisage.video ? ` ${link(`${detailsUrl(accisage, lang)}#video`, zh ? '[研究介紹影片]' : '[research video]')}` : ''}</li>
-      <li><strong>${e(workTitle(pcb, lang))}</strong> (${e(pcb.year)}). ${e(zh ? `${tr(pcb.publication.venue, lang)}，${pcb.publication.volume}，${pcb.publication.pages} 頁。` : `${tr(pcb.publication.venue, lang)}, ${pcb.publication.volume}, pp. ${pcb.publication.pages}.`)} ${link(detailsUrl(pcb, lang), zh ? '[詳情]' : '[details]')}</li>
+      <li><strong>${e(workTitle(pcb, lang))}</strong> (${e(pcb.year)}). ${e(zh ? `${tr(pcb.publication.venue, lang)}，${pcb.publication.volume}，${pcb.publication.pages} 頁。` : `${tr(pcb.publication.venue, lang)}, ${pcb.publication.volume}, pp. ${pcb.publication.pages}.`)} ${link(detailsUrl(pcb, lang), zh ? '[詳情]' : '[details]')} ${demoLink(pcb, lang)}</li>
     </ul>`)}
     ${section(zh ? '技術能力' : 'Technical skills', `
       <p><strong>${zh ? '研究領域' : 'Research areas'}:</strong> ${e(profile.researchAreas.join(', '))}.</p>

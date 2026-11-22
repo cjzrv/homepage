@@ -36,6 +36,7 @@ for (const work of [...research, ...projects]) {
   }
   if (work.translatedTitle) localized(work.translatedTitle, `${work.slug}.translatedTitle`);
   if (work.subtitle) localized(work.subtitle, `${work.slug}.subtitle`);
+  if (work.demoRoute) assert.ok(siteRoutes.includes(work.demoRoute), `${work.slug}: demo route must be built`);
   for (const item of work.links) {
     localized(item.label, `${work.slug}.link.label`);
     assert.equal(new URL(item.href).protocol, 'https:');

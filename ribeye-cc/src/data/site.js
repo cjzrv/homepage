@@ -15,6 +15,7 @@ export const identity = {
     email: 'cjz89k@gmail.com', website: 'https://ribeye.cc',
     github: [{ label: 'cjzrv', href: 'https://github.com/cjzrv' }, { label: 'ribeye0', href: 'https://github.com/ribeye0' }],
 };
+const linecoverDemoRoute = '/projects/linecover/demo/';
 const accisageThesis = {
     href: 'https://hdl.handle.net/11296/u6rz3a',
     title: bi('Spatio-Temporal Traffic Accident Grounding in Surveillance Videos via Error-Aware VLM Tuning', '交通事故影片時空定位之誤差導向視覺語言模型微調方法'),
@@ -47,6 +48,7 @@ export const research = [
         category: bi('Journal article · Minghsin Journal', '期刊論文 · 明新學報'),
         summary: bi('A geometry-based coverage strategy designed to reduce brush travel distance and overlap when filling PCB copper regions.', '以幾何方法降低 PCB 銅面覆蓋過程的筆刷移動距離與重疊面積。'),
         year: '2024', tags: ['Computational Geometry', 'Algorithms', 'PCB', 'C++'],
+        demoRoute: linecoverDemoRoute,
         links: [
             { label: bi('Journal article', '期刊收錄頁面'), href: 'https://www.airitilibrary.com/Article/Detail/1728760X-N202404170002-90060' },
             { label: bi('Implementation', '程式實作'), href: 'https://github.com/cjzrv/linecover' },
@@ -63,17 +65,11 @@ export const projects = [
     },
     {
         slug: 'linecover', route: 'projects', title: 'linecover',
-        category: bi('Research algorithm implementation', '研究演算法程式實作'),
-        summary: bi('A C++ command-line implementation to generate polygon samples and compare geometric coverage strategies for PCB copper pours.', '以 C++ 實作多邊形覆蓋演算法，支援隨機產生圖形、比較覆蓋策略及輸出資料。'),
-        year: '2024', tags: ['C++', 'Computational Geometry', 'CLI'],
+        category: bi('Undergraduate project · Interactive algorithm demo', '畢業專題 · 演算法互動展示'),
+        summary: bi('A C++ implementation of PCB coverage algorithms with a browser-based interactive demo: compare two methods, generate random shapes, and inspect brush paths and geometry metrics.', '以 C++ 實作 PCB 銅面覆蓋演算法，提供網頁互動展示，可比較兩種方法、隨機生成圖形，並觀察筆刷路徑與幾何指標。'),
+        year: '2024', tags: ['C++', 'raylib', 'WebAssembly', 'Computational Geometry'],
+        demoRoute: linecoverDemoRoute,
         links: [{ label: bi('GitHub', 'GitHub'), href: 'https://github.com/cjzrv/linecover' }],
-    },
-    {
-        slug: 'med-sched', route: 'projects', title: 'med-sched',
-        category: bi('Small personal web utility', '小型個人 Web 工具'),
-        summary: bi('A lightweight personal web utility for keeping a medication schedule.', '輕量化的個人用藥時間表 Web 工具。'),
-        year: '2026', tags: ['Web', 'JavaScript', 'GitHub Pages'],
-        links: [{ label: bi('GitHub', 'GitHub'), href: 'https://github.com/ribeye0/med-sched' }],
     },
 ];
 export const workTitle = (work, lang) => work.translatedTitle ? tr(work.translatedTitle, lang) : work.title;
@@ -81,4 +77,4 @@ export const researchGroups = [
     { status: 'manuscript', title: bi('Graduate research', '碩士研究') },
     { status: 'published', title: bi('Journal article', '期刊論文') },
 ];
-export const siteRoutes = ['/', '/research/', ...research.map(work => `/research/${work.slug}/`), '/projects/', ...projects.map(work => `/projects/${work.slug}/`), '/projects/linecover/demo/', '/about/'];
+export const siteRoutes = ['/', '/research/', ...research.map(work => `/research/${work.slug}/`), '/projects/', ...projects.map(work => `/projects/${work.slug}/`), linecoverDemoRoute, '/about/'];

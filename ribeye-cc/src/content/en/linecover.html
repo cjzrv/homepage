@@ -1,12 +1,19 @@
-<section class="article-section"><h2>Overview</h2>
-<p><a href="/projects/linecover/demo/">Open the interactive demonstration</a>: a C++, raylib and WebAssembly reconstruction with step-by-step comparison, editable vertices and case export.</p>
-<p>linecover is a C++ command-line research implementation related to the published PCB copper coverage study.</p>
+<section class="article-section"><h2>Undergraduate project</h2>
+<p>linecover is the C++ implementation of my undergraduate project, “Highly efficient PCB copper pour coverage method.” It studies V-shaped brush paths to reduce coverage overlap and brush travel.</p>
+<p>The project brings together the original command-line implementation and a browser-based interactive demonstration. See the <a href="/research/pcb-coverage/">research page</a> for the method and original experimental results.</p>
 </section>
 
-<section class="article-section"><h2>Features</h2>
-<ul><li>Loads or randomly generates triangles and quadrilaterals.</li>
-<li>Runs either coverage strategy or compares both.</li>
-<li>Provides flags for quick execution and saving samples.</li>
+<section class="article-section"><h2>Interactive web demonstration</h2>
+<p><a href="/projects/linecover/demo/">Open the PCB coverage interactive demo</a>. Run it directly in your browser without installing an application.</p>
+<ul>
+<li>Play both methods together, adjust the speed, step through strokes, or scrub the progress slider.</li>
+<li>Generate random triangles or trapezoids, drag vertices, and change the minimum brush radius to compare results immediately.</li>
+<li>Toggle corner-by-corner filling, stroke outlines, and the full travel trace, with solid drawing paths and dashed lifted transfers.</li>
+<li>Compare coverage overlap and total travel, and save or load cases as JSON.</li>
 </ul>
-<p>Related paper and results: <a href="/research/pcb-coverage/">Highly Efficient PCB Copper Pour Coverage Method</a>.</p>
+<p class="source-note">The web demonstration uses C++, raylib and WebAssembly, supporting triangles and convex trapezoids with horizontal bases. Its per-case geometry metrics are presented separately from the paper’s 1,000-triangle statistics.</p>
+</section>
+
+<section class="article-section"><h2>Original implementation</h2>
+<p>The <a href="https://github.com/cjzrv/linecover">original linecover C++ project</a> provides command-line execution, shape loading, random generation, method comparison and sample storage.</p>
 </section>

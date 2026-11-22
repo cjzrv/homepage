@@ -85,3 +85,7 @@ Playback controls and both method panels now share the `.demo-workspace` section
 Keep playback immediately above the figures; its toolbar stays sticky only within this
 section (static in short viewports). Instructions, metric definitions and coordinate/JSON
 editing use native details/summary. Preserve all existing controls and computation semantics.
+
+PCB research and linecover records share `demoRoute` in `src/data/site.js`. The common
+renderer exposes bilingual interactive-demo links on home/list/detail pages and the CV.
+Keep those entry points and the project’s feature description in sync with the demo.

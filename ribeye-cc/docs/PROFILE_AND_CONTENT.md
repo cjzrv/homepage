@@ -103,7 +103,8 @@
 | **DLDR** | https://github.com/ribeye0/dldr | Rust、Tauri、Svelte；已購買 DLsite 作品的搜尋、批次下載、媒體庫、播放清單、同步字幕音訊播放器；GUI / CLI | 代表工程作品，展示真實介面截圖、技術與架構，不加入成人向內容圖片 |
 | **linecover** | https://github.com/cjzrv/linecover | C++ CLI、多邊形覆蓋法、隨機產生圖形、比較演算法、資料儲存 | 和 PCB 論文交叉連結，避免產生兩份不同研究描述 |
 | **AcciSAGE** | https://github.com/cjzrv/accisage | Python 研究實作、訓練／推論／評估、LoRA adapters | Research 詳頁為主，軟體列表可連過去 |
-| **med-sched** | https://github.com/ribeye0/med-sched | JavaScript 個人用 Web 工具；README 很簡短 | 次要作品，不公開任何真實個人用藥資料 |
+
+使用者於 2026-11-22 要求從網站移除 med-sched 專案；首頁、專案列表、履歷與中英文詳頁均不再呈現。
 
 ## 6. 建議英文介紹（可修改，但不要增加無根據的經歷）
 

@@ -1,12 +1,19 @@
-<section class="article-section"><h2>概述</h2>
-<p>linecover 是《高效的 PCB 銅面覆蓋法》研究的 C++ 命令列實作，可用於比較多邊形覆蓋演算法。</p>
-<p><a href="/zh-tw/projects/linecover/demo/">開啟互動示範</a>：使用 C++、raylib 與 WebAssembly 重建覆蓋過程，可逐步比較兩種方法、拖曳頂點及匯出案例。</p>
+<section class="article-section"><h2>畢業專題</h2>
+<p>linecover 是大學畢業專題《高效的 PCB 銅面覆蓋法》的 C++ 程式實作，研究以 V 字形路徑降低 PCB 銅面覆蓋的重疊與筆刷移動距離。</p>
+<p>本專案整合原始命令列程式與網頁互動展示。論文方法及原始實驗數據見<a href="/zh-tw/research/pcb-coverage/">論文介紹頁</a>。</p>
 </section>
 
-<section class="article-section"><h2>功能</h2>
-<ul><li>支援三角形與四邊形的載入及隨機生成。</li>
-<li>可執行不同覆蓋方法及對照測試。</li>
-<li>具有快速執行及圖形資料儲存等參數。</li>
+<section class="article-section"><h2>網頁互動展示</h2>
+<p><a href="/zh-tw/projects/linecover/demo/">開啟 PCB 銅面覆蓋互動展示</a>。直接在瀏覽器操作，無須安裝程式。</p>
+<ul>
+<li>同步播放 V 字形覆蓋法與比較方法，可調整速度、逐步查看或拖動進度。</li>
+<li>隨機生成三角形或梯形，拖曳頂點、調整筆刷半徑，立即比較結果。</li>
+<li>切換逐角折返覆蓋、筆劃輪廓與完整行進軌跡，觀察落筆實線及抬筆虛線。</li>
+<li>比較覆蓋重疊率與總移動距離，並以 JSON 保存、載入案例。</li>
 </ul>
-<p>論文及實驗數據： <a href="/zh-tw/research/pcb-coverage/">高效的 PCB 銅面覆蓋法</a>.</p>
+<p class="source-note">網頁版以 C++、raylib 與 WebAssembly 重建，支援三角形與上下底水平的凸梯形。展示數值是目前案例的幾何計算，與論文的 1,000 個三角形統計分開呈現。</p>
+</section>
+
+<section class="article-section"><h2>原始程式</h2>
+<p><a href="https://github.com/cjzrv/linecover">原始 linecover C++ 專案</a>保留命令列執行、圖形資料載入、隨機生成、方法比較及資料儲存功能。</p>
 </section>

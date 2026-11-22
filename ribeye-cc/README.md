@@ -27,7 +27,10 @@ npm run preview
 
 linecover 的 C++ 核心、桌面版、WebAssembly 建置與復現範圍見 [../linecover/README.md](../linecover/README.md)。
 中文互動頁為 `/zh-tw/projects/linecover/demo/`，英文為 `/projects/linecover/demo/`；可逐步播放、
-拖曳／編輯頂點、比較兩種方法及匯入匯出案例。已附編譯產物，日常網站建置仍不需要安裝 C++ 工具鏈。
+拖曳／編輯頂點、隨機生成三角形／梯形、切換逐角折返、筆劃輪廓與完整軌跡，並比較指標及匯入匯出案例。
+首頁、研究與作品列表、PCB 論文詳頁、linecover 詳頁及履歷都有雙語「互動展示」直接入口，
+由 `src/data/site.js` 的 `demoRoute` 與共用 renderer 維護。
+已附編譯產物，日常網站建置仍不需要安裝 C++ 工具鏈。
 修改演算法後須重新編譯；`npm run verify` 會檢查來源與編譯產物雜湊。
 
 | 檔案 | 用途 |
@@ -38,6 +41,8 @@ linecover 的 C++ 核心、桌面版、WebAssembly 建置與復現範圍見 [../
 | `src/content/zh-tw/*.html` | 對應的繁體中文正文 |
 | `src/layout.js` | 共用頁首、導覽、語言切換、SEO metadata 與頁尾 |
 | `src/render.js` | 首頁、列表、履歷、詳頁共用區塊與 404 的小型產生函式 |
+| `src/linecover-demo.js` | linecover 中英文互動展示頁的控制項與布局 |
+| `public/demos/linecover/` | 展示控制腳本、隨機圖形生成、樣式及已編譯的 WebAssembly 資產 |
 | `src/html.js` | 資料插入 HTML 時的跳脫與安全連結處理 |
 | `src/styles/global.css` | 共用桌面、手機及列印樣式 |
 | `public/` | 核准的圖片、影片、favicon、robots、CNAME 與原生列印腳本 |
