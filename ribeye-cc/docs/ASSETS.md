@@ -4,7 +4,7 @@
 
 - `public/images/profile.jpg`: supplied by the owner on 2026-11-22 as `/home/ev/Pictures/profile_img.jpg` (960 × 960 JPEG). Copied unchanged, with no cropping, retouching or generated edits, as explicitly requested.
 - Displayed on the Chinese and English homepages beside the name and contact information at 160px wide. On narrow screens it appears above the text at 128px wide. The full square image is preserved with automatic height, localized alternative text and explicit intrinsic dimensions.
-- The site remains unpublished while editing; adding this asset does not authorize restoring public deployment.
+- The portrait was added during the unpublished editing period. The owner explicitly authorized publishing the website again on 2026-11-22.
 
 ## Author-provided research video
 

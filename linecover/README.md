@@ -76,7 +76,7 @@ npm run verify
 建置腳本複製 runtime 到 `ribeye-cc/public/demos/linecover/`，並寫入來源／產物 SHA-256。
 網站驗證會拒絕來源已修改但未重新編譯的 Wasm。GitHub Pages 只接收 `ribeye-cc/dist/`；
 不需要執行 C++、Node 伺服器或提供 COOP/COEP 標頭。未使用 pthreads、外部 CDN 或資料上傳。
-發布流程仍依網站原有設定保持暫停；此實作不會自動重新公開。
+網站發布由根目錄 `pages.yml` workflow 管理，依本人於 2026-11-22 的要求恢復公開；`linecover.yml` 僅驗證核心與 WebAssembly，不另行部署。
 
 ## 演算法與指標定義
 

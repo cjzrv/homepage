@@ -37,4 +37,4 @@ jobs:
           bash linecover/scripts/build-web.sh
           cd ribeye-cc
           npm run verify
-      # Validation only. Publishing remains disabled in pages.yml.
+      # Validation only. Pages deployment is handled by pages.yml.

@@ -58,7 +58,7 @@ AcciSAGE 保持碩士研究／manuscript 身分；[正式碩士論文典藏](htt
 
 ## GitHub Pages
 
-**目前依本人要求暫停發布，網站已下線，待完整編輯後再公開。** 根目錄 workflow 仍執行檢查，但 Pages 產物上傳及部署步驟均已停用。本人已在 repository 的 Pages 設定選擇 **Unpublish site**，公開網址已確認回傳 404；只有本人明確要求重新公開時才恢復 workflow。編輯期間使用本機預覽。
+**本人於 2026-11-22 明確要求恢復公開，Pages workflow 已恢復。** 推送 `main` 或在 `main` 手動執行 workflow，會在檢查成功後上傳靜態產物並部署至 [ribeye.cc](https://ribeye.cc/)。PR 僅做檢查；部署結果可在 GitHub Actions 確認。
 
 **請推送外層 `site/` 儲存庫，而不是只推本資料夾。** workflow 現在正確位於外層 `.github/workflows/pages.yml`，在 `ribeye-cc/` 執行 `npm run verify`，並只上傳 `ribeye-cc/dist/`。沒有安裝依賴或快取 npm 套件的步驟。
 

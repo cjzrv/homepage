@@ -46,7 +46,7 @@ live in `public/demos/linecover/`; `npm run verify` detects stale compiled asset
 Run headless C++ tests as well as site checks. Preserve the distinction between new per-case
 geometry metrics and the original published statistical tables. Never imply BGI pixel parity.
 
-The owner requested unpublishing while editing on 2026-11-21. The root workflow currently disables Pages artifact upload and deployment with `if: ${{ false }}` while keeping validation enabled. Do not restore public deployment until the owner explicitly asks to publish again. Local preview remains available.
+The owner requested unpublishing while editing on 2026-11-21, then explicitly requested publishing again on 2026-11-22. Pages artifact upload and deployment are restored: main pushes/manual runs publish after validation, while PRs only validate. Keep the site public until the owner requests otherwise. Local preview remains available.
 
 The author corrected corner zig-zag on 2026-11-22: finish one whole side down to the minimum
 brush, then return along the other side from small to large, like a simple Christmas-tree outline.
