@@ -5,8 +5,8 @@ import { escapeHtml as e, link } from './html.js';
 export function layout({ lang, title, description, current = 'home', route = '/', noindex = false, print = false, demo = false }, content) {
   const zh = lang === 'zh-tw';
   const displayName = zh ? `${identity.chineseName}（${identity.name}）` : identity.name;
-  const pageTitle = title ? `${title} | ${displayName}` : `${identity.name} (莊淳傑)`;
-  const pageDescription = description || (zh ? '莊淳傑的學術個人網站：電腦視覺、演算法研究與軟體開發。' : 'Academic homepage of Chun-Jie Zhuang. Research in computer vision and algorithms; software projects.');
+  const pageTitle = title ? `${title} | ${displayName}` : `${identity.name} (${identity.chineseName})`;
+  const pageDescription = description || (zh ? `${identity.chineseName}的學術個人網站：電腦視覺、演算法研究與軟體開發。` : `Academic homepage of ${identity.name}. Research in computer vision and algorithms; software projects.`);
   const canonical = new URL(localUrl(route, lang), identity.website).href;
   const alternate = new URL(alternateUrl(route, lang), identity.website).href;
   const navigation = [
@@ -16,7 +16,7 @@ export function layout({ lang, title, description, current = 'home', route = '/'
     ['about', zh ? '履歷' : 'CV', '/about'],
   ];
   const nameTag = route === '/' ? 'h1' : 'p';
-  const portrait = route === '/' ? `<img class="profile-photo" src="/images/profile.jpg" width="960" height="960" alt="${zh ? '莊淳傑的個人照片' : 'Portrait of Chun-Jie Zhuang'}">` : '';
+  const portrait = route === '/' ? `<img class="profile-photo" src="/images/profile.jpg" width="960" height="960" alt="${e(zh ? `${identity.chineseName}的個人照片` : `Portrait of ${identity.name}`)}">` : '';
   return `<!doctype html>
 <html lang="${zh ? 'zh-Hant-TW' : 'en'}">
 <head>

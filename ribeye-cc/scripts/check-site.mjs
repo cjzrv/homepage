@@ -35,6 +35,8 @@ for (const [route,html] of pages) {
   assert.match(html,/<title>[^<]+<\/title>/,fail(route,'page title'));
   assert.match(html,/<main\b[^>]*\bid="main"[^>]*\btabindex="-1"/,fail(route,'focusable skip target'));
   const metadata=tags(html,'meta');
+  assert.equal(attr(metadata.find(tag => attr(tag,'name')==='author')||'','content'),'Chun-Jie Zhuang',fail(route,'author metadata uses the confirmed name'));
+  assert.equal(attr(metadata.find(tag => attr(tag,'property')==='og:site_name')||'','content'),'Chun-Jie Zhuang',fail(route,'social site name uses the confirmed name'));
   assert.ok(metadata.some(tag => attr(tag,'name')==='description' && attr(tag,'content')?.length>15),fail(route,'useful description'));
   let previous=0;
   for (const heading of html.matchAll(/<h([1-6])\b/g)) {
@@ -96,7 +98,6 @@ const locations=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>new URL(m
 assert.deepEqual(new Set(locations),new Set(expectedRoutes),'Sitemap covers canonical bilingual pages without duplicating the legacy homepage');
 assert.ok(!files.some(file => /\.pdf$/i.test(file)),'Private PDFs must stay outside the public output');
 assert.ok(!files.some(file => file.includes(`${path.sep}_astro${path.sep}`)),'No retired framework output');
-assert.ok(!pages.get('/projects/dldr/').includes('<img'),'DLDR must not embed the unsuitable repository screenshot');
 assert.match(pages.get('/research/accisage/'),/Manuscript/,'AcciSAGE manuscript status');
 assert.match(pages.get('/research/accisage/'),/0\.5503/,'AcciSAGE reference result');
 assert.match(pages.get('/research/pcb-coverage/'),/1753\.16%/,'PCB comparison figure');

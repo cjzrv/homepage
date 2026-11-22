@@ -1,6 +1,6 @@
 # ribeye.cc 維護入口
 
-這是莊淳傑（Chun-Jie Zhuang）的中英文個人學術網站。2026-11-21 已依使用者要求移除 Astro 與 TypeScript；目前以 Node.js 內建功能產生 HTML，沒有 npm 套件依賴。
+這是莊淳傑（Chun-Jie Zhuang）的中英文個人學術網站。使用者已恢復本名署名，公開作品與 GitHub 帳號僅呈現目前共用資料中的項目；研究連結與影片保留。2026-11-21 已依使用者要求移除 Astro 與 TypeScript；目前以 Node.js 內建功能產生 HTML，沒有 npm 套件依賴。
 
 1. 先讀 `AGENTS.md`、`docs/PROFILE_AND_CONTENT.md`、`docs/RESEARCH_FACTS.md`、`docs/DESIGN_SPEC.md`。
 2. 執行 `npm run verify`，不需要安裝套件。

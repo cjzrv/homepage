@@ -50,8 +50,8 @@ export function listingPage(lang, category) {
   const isResearch = category === 'research';
   const title = isResearch ? (zh ? '研究與論文' : 'Research and publications') : (zh ? '軟體專案' : 'Software projects');
   const description = isResearch
-    ? (zh ? '莊淳傑的已刊登論文與碩士研究：PCB 銅面覆蓋法，以及視覺語言模型的事故影片時空定位。' : 'Published work and graduate research by Chun-Jie Zhuang, spanning PCB coverage algorithms and vision-language models for accident video grounding.')
-    : (zh ? '莊淳傑的公開軟體專案：DLDR 桌面應用程式、linecover 幾何演算法實作與個人工具。' : 'Software by Chun-Jie Zhuang: the DLDR desktop application, linecover geometry algorithms, and small personal web tools.');
+    ? (zh ? `${identity.chineseName}的已刊登論文與碩士研究：PCB 銅面覆蓋法，以及視覺語言模型的事故影片時空定位。` : `Published work and graduate research by ${identity.name}, spanning PCB coverage algorithms and vision-language models for accident video grounding.`)
+    : (zh ? `${identity.chineseName}的公開軟體專案：linecover 幾何演算法實作與網頁互動展示。` : `Software by ${identity.name}: linecover geometry algorithms and an interactive web demonstration.`);
   return layout({ lang, current: category, route: `/${category}`, title, description }, `
     <div class="page-intro"><h1>${e(title)}</h1><p>${e(description)}</p></div>
     ${isResearch ? researchEntries(lang, 'h2') : list(projects.map(work => workEntry(work, lang)))}`);
@@ -62,9 +62,9 @@ export function aboutPage(lang) {
   const accisage = research.find(work => work.slug === 'accisage');
   const pcb = research.find(work => work.slug === 'pcb-coverage');
   const title = zh ? '履歷' : 'Curriculum vitae';
-  const description = zh ? '莊淳傑的學歷、論文與研究、技術能力及聯絡方式。' : 'Education, research, technical skills, and contact information for Chun-Jie Zhuang.';
+  const description = zh ? `${identity.chineseName}的學歷、論文與研究、技術能力及聯絡方式。` : `Education, research, technical skills, and contact information for ${identity.name}.`;
   const body = `<div class="page-intro"><h1>${e(title)}</h1>
-      <p>${e(zh ? '莊淳傑（Chun-Jie Zhuang）。人工智慧研究、演算法與軟體工程。' : 'Chun-Jie Zhuang (莊淳傑). Artificial intelligence research, algorithms, and software engineering.')}</p>
+      <p>${e(zh ? `${identity.chineseName}（${identity.name}）。人工智慧研究、演算法與軟體工程。` : `${identity.name} (${identity.chineseName}). Artificial intelligence research, algorithms, and software engineering.`)}</p>
       <p class="small"><button type="button" class="text-action" data-print>${zh ? '[列印／另存為 PDF]' : '[Print / Save as PDF]'}</button></p>
     </div>
     ${section(zh ? '學歷' : 'Education', `<ul class="cv-list">${profile.education.map(item => `<li><span class="cv-date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong>${tr(item.degree, lang) ? ` — ${e(tr(item.degree, lang))}` : ''}</li>`).join('')}</ul>`)}

@@ -37,7 +37,6 @@
 /research/accisage/
 /research/pcb-coverage/
 /projects/        軟體專案列表
-/projects/dldr/
 /projects/linecover/
 /about/           學歷、研究經歷、技能、英語能力、聯絡
 /zh-tw/...        繁體中文鏡像

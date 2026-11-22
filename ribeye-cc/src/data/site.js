@@ -13,7 +13,7 @@ export function alternateUrl(path, language) {
 export const identity = {
     name: 'Chun-Jie Zhuang', chineseName: '莊淳傑',
     email: 'cjz89k@gmail.com', website: 'https://ribeye.cc',
-    github: [{ label: 'cjzrv', href: 'https://github.com/cjzrv' }, { label: 'ribeye0', href: 'https://github.com/ribeye0' }],
+    github: [{ label: 'cjzrv', href: 'https://github.com/cjzrv' }],
 };
 const linecoverDemoRoute = '/projects/linecover/demo/';
 const accisageThesis = {
@@ -56,13 +56,6 @@ export const research = [
     }
 ];
 export const projects = [
-    {
-        slug: 'dldr', route: 'projects', title: 'DLDR — DLsite Downloader',
-        category: bi('Cross-platform desktop app', '跨平台桌面應用程式'),
-        summary: bi('A desktop application for searching, downloading, organizing, and playing purchased DLsite works, with an integrated CLI and subtitle-aware audio player.', '針對已購買 DLsite 作品的跨平台下載與管理程式，整合命令列工具、標籤搜尋與同步字幕音訊播放器。'),
-        year: '2026', tags: ['Rust', 'Tauri', 'Svelte', 'SQLite'],
-        links: [{ label: bi('GitHub', 'GitHub'), href: 'https://github.com/ribeye0/dldr' }, { label: bi('Releases', '下載版本'), href: 'https://github.com/ribeye0/dldr/releases/latest' }],
-    },
     {
         slug: 'linecover', route: 'projects', title: 'linecover',
         category: bi('Undergraduate project · Interactive algorithm demo', '畢業專題 · 演算法互動展示'),

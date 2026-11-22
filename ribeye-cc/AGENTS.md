@@ -15,8 +15,9 @@ The owner deliberately prefers the look of a traditional professor's personal ac
 - Traditional Chinese is the default: `/` is the Chinese homepage and `/en/` is the English homepage. Preserve `/zh-tw/` as a Chinese homepage alias with canonical `/`; keep existing inner-page URLs and use Chinese counterparts for `x-default` metadata.
 - AcciSAGE is graduate research/manuscript with public implementation, not an asserted formally published paper.
 - PCB study is a 2024 Minghsin Journal publication. Its source experiment uses 1,000 randomly generated triangles and scale-dependent comparisons; do not invent benchmarks.
-- The GitHub owners `cjzrv` and `ribeye0` are both associated with this person's work; keep repository links stable.
+- Public GitHub links are limited to `cjzrv`. Preserve the current research repositories; do not restore removed accounts or personal software projects from older documents or Git history.
 - Owner: Chun-Jie Zhuang (莊淳傑), `cjz89k@gmail.com`, domain `ribeye.cc`, M.S. 2024–2026, B.S. 2019–2024, TOEIC 780/990.
+- The owner restored real-name attribution on 2026-11-22, superseding the temporary nickname-only preference. Preserve the confirmed education, photo, contact details, research links and video. Public software and account entries must stay limited to the current shared data; do not add back removed entries.
 - Do not add a personal photo, full transcript, private life, or additional claims unless the owner provides them.
 
 The owner requested removal of unnecessary frameworks on 2026-11-21. This is now plain HTML/CSS generated with Node.js built-ins, with **zero npm dependencies**. Do not reinstall Astro, TypeScript, a frontend framework or a template engine without a concrete need.

@@ -19,7 +19,6 @@
 - `public/images/accisage-LICENSE.txt`: upstream MIT notice, also included in the static output.
 - `public/images/pcb-v-shape.png`: inherited from the handoff, taken from the author's PCB paper, p. 5. No additional paper images or full-text PDF have been added.
 
-The DLDR repository's library screenshot contains adult work covers, so it is not embedded or copied into this website. A clean screenshot with synthetic library data can be added later.
 
 AcciSAGE repository license:
 

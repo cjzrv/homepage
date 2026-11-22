@@ -68,5 +68,5 @@
 - 使用者直接確認：姓名、學歷、研究室、論文與專案關聯、兩個 GitHub 帳號、TOEIC 分數、網域。
 - PDF（作者提供）：PCB 論文方法、作者及實驗數據。
 - 華藝正式出版頁面：期刊名稱、卷數、年月、頁碼與作者順序。
-- 公開 GitHub README：AcciSAGE 評估分數；DLDR 及 linecover 功能。
+- 公開 GitHub README：AcciSAGE 評估分數與 linecover 功能。
 - 任何未知事項都保持未知，等待使用者補充。
