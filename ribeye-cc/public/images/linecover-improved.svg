@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="432" height="369" viewBox="89 48 432 369">
+  <polygon points="110,400 270,65 500,400" fill="#fafafa"/>
+  <path d="M198.723,344.052 L278.723,176.552" stroke="#356f9a" stroke-opacity=".45" stroke-width="111.896" stroke-linecap="round"/>
+  <path d="M278.723,176.552 L393.723,344.052" stroke="#356f9a" stroke-opacity=".45" stroke-width="111.896" stroke-linecap="round"/>
+  <path d="M393.723,344.052 L198.723,344.052" stroke="#356f9a" stroke-opacity=".45" stroke-width="111.896" stroke-linecap="round"/>
+  <path d="M160.016,325.565 L130.699,386.947" stroke="#a4712d" stroke-opacity=".45" stroke-width="26.106" stroke-linecap="round"/>
+  <path d="M130.699,386.947 L198.723,386.947" stroke="#a4712d" stroke-opacity=".45" stroke-width="26.106" stroke-linecap="round"/>
+  <path d="M125.237,384.339 L121.101,393" stroke="#a4712d" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M121.101,393 L130.699,393" stroke="#a4712d" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M313.316,152.802 L272.181,92.8872" stroke="#a4712d" stroke-opacity=".45" stroke-width="27.973" stroke-linecap="round"/>
+  <path d="M272.181,92.8872 L240.859,158.468" stroke="#a4712d" stroke-opacity=".45" stroke-width="27.973" stroke-linecap="round"/>
+  <path d="M277.94,88.9328 L271.091,78.957" stroke="#a4712d" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M271.091,78.957 L265.876,89.8761" stroke="#a4712d" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M393.723,385.057 L471.615,385.057" stroke="#a4712d" stroke-opacity=".45" stroke-width="29.886" stroke-linecap="round"/>
+  <path d="M471.615,385.057 L427.528,320.843" stroke="#a4712d" stroke-opacity=".45" stroke-width="29.886" stroke-linecap="round"/>
+  <path d="M471.615,393 L486.703,393" stroke="#a4712d" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M486.703,393 L478.163,380.561" stroke="#a4712d" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <polygon points="110,400 270,65 500,400" fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+</svg>

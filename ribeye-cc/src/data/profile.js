@@ -3,10 +3,9 @@ import { bi, identity } from './site.js';
 /** Confirmed profile facts shared by the home page and CV. */
 export const profile = {
   introduction: [
-    bi(`I am ${identity.name}, a graduate of the M.S. Program in Artificial Intelligence Technology at National Taipei University of Technology. During my master’s studies, I conducted research on computer vision and UR-series robotic arms at the Robot Vision Lab in the Department of Computer Science and Information Engineering.`, `我是${identity.chineseName}，畢業於國立臺北科技大學人工智慧科技碩士學位學程。碩士期間曾於資工系所屬的 Robot Vision Lab（機器人視覺實驗室）從事電腦視覺與 UR 系列機械手臂相關研究。`),
-    bi('My research interests include computer vision, fine-tuning multimodal language models, and image processing. I also enjoy building practical software tools to solve problems I encounter in everyday life.', '我的研究興趣包括電腦視覺、多模態語言模型微調與影像處理。此外，我也喜歡開發實用的軟體工具，解決日常生活中遇到的問題。'),
+    bi(`I am ${identity.name}, a graduate of the M.S. Program in Artificial Intelligence Technology at National Taipei University of Technology. At the Robot Vision Lab in the Department of Computer Science and Information Engineering, I trained and developed vision-language models. I also contributed to a project that used computer vision to estimate grasp poses for a robotic arm.`, `我是${identity.chineseName}，畢業於國立臺北科技大學人工智慧科技碩士學位學程。碩士期間，我在資工系的 Robot Vision Lab（機器人視覺實驗室）從事視覺語言模型的訓練與開發，也參與了利用電腦視覺估測機械手臂抓取姿態的研究計畫。`),
+    bi('My research interests include computer vision, training and fine-tuning multimodal language models, and image processing. I also build tools to solve problems I encounter in everyday life.', '我的研究興趣包括電腦視覺、多模態語言模型的訓練與微調，以及影像處理。我也喜歡開發實用的工具，解決日常生活中遇到的問題。'),
   ],
-  interests: bi('Computer vision; fine-tuning multimodal language models; image processing.', '電腦視覺；多模態語言模型微調；影像處理。'),
   education: [
     {
       period: '2024–2026',

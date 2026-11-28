@@ -6,7 +6,7 @@ export function layout({ lang, title, description, current = 'home', route = '/'
   const zh = lang === 'zh-tw';
   const displayName = zh ? `${identity.chineseName}（${identity.name}）` : identity.name;
   const pageTitle = title ? `${title} | ${displayName}` : `${identity.name} (${identity.chineseName})`;
-  const pageDescription = description || (zh ? `${identity.chineseName}的學術個人網站：電腦視覺、演算法研究與軟體開發。` : `Academic homepage of ${identity.name}. Research in computer vision and algorithms; software projects.`);
+  const pageDescription = description || (zh ? `${identity.chineseName}的個人學術網站，收錄視覺語言模型、交通事故影片分析與 PCB 幾何覆蓋研究。` : `Academic homepage of ${identity.name}. Research on vision-language models, traffic accident video analysis, and geometric coverage algorithms for printed circuit boards.`);
   const canonical = new URL(localUrl(route, lang), identity.website).href;
   const alternate = new URL(alternateUrl(route, lang), identity.website).href;
   const navigation = [
@@ -50,8 +50,8 @@ export function layout({ lang, title, description, current = 'home', route = '/'
     <div class="header-details">
     <${nameTag} class="header-name">${link(localUrl('/', lang), zh ? identity.chineseName : identity.name)}</${nameTag}>
     <p class="header-native" lang="${zh ? 'en' : 'zh-Hant'}">${e(zh ? identity.name : identity.chineseName)}</p>
-    <p class="header-affiliation">${e(zh ? '國立臺北科技大學 人工智慧科技碩士' : 'M.S. in Artificial Intelligence Technology, National Taipei University of Technology')}</p>
-    <p class="header-affiliation">${e(zh ? '碩士研究：機器人視覺實驗室（Robot Vision Lab），2024–2026' : 'Graduate research: Robot Vision Lab, 2024–2026')}</p>
+    <p class="header-affiliation">${e(zh ? '國立臺北科技大學 人工智慧科技碩士學位學程' : 'M.S. Program in Artificial Intelligence Technology, National Taipei University of Technology')}</p>
+    <p class="header-affiliation">${e(zh ? '曾隸屬：機器人視覺實驗室（Robot Vision Lab），2024–2026' : 'Former member of the Robot Vision Lab, 2024–2026')}</p>
     <p class="header-contacts">${link(`mailto:${identity.email}`, identity.email)}${identity.github.map(item => link(item.href, `GitHub (${item.label})`)).join('')}</p>
     </div>
     ${portrait}

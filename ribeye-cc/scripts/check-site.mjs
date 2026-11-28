@@ -114,8 +114,8 @@ for (const lang of ['en','zh-tw']) {
   for (const route of ['/','/research/']) {
     const html=pages.get(localUrl(route,lang));
     const graduate=lang==='en'?'Graduate research':'碩士研究';
-    const journal=lang==='en'?'Journal article':'期刊論文';
-    assert.ok(html.indexOf(`>${graduate}<`)<html.indexOf(`>${journal}<`),'Graduate research must appear first');
+    const journal=lang==='en'?'Undergraduate research':'大學專題研究';
+    assert.ok(html.includes(`>${graduate}<`) && html.indexOf(`>${graduate}<`)<html.indexOf(`>${journal}<`),'Graduate research must appear first');
   }
   const cv=pages.get(localUrl('/about/',lang));
   for (const fact of ['Arch Linux','Docker','ROS','Voice Processing','x86 assembly']) assert.ok(cv.includes(fact),`CV retains ${fact}`);

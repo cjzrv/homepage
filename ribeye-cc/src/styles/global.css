@@ -37,7 +37,6 @@ p { margin: 0 0 13px; }
 .toeic-score { font-size: 1.125rem; }
 .home-intro { margin: 0 0 24px; }
 .home-intro p { margin-bottom: 10px; }
-.interests { margin: 4px 0 0; }
 .entry-list { list-style: none; padding: 0; margin: 15px 0 22px; }
 .entry { margin: 0 0 20px; padding: 0; }
 .entry-title { font-weight: 600; }
@@ -72,6 +71,16 @@ p { margin: 0 0 13px; }
 figure { margin: 17px 0 22px; }
 figure img { border: 1px solid #ddd; display: block; max-height: 480px; object-fit: contain; }
 figcaption { margin-top: 6px; font-size: .875rem; color: #555; }
+.research-preview { max-width: 38rem; margin: 12px 0 20px; }
+.research-preview img { width: 100%; height: auto; }
+.coverage-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem 1.5rem; }
+.coverage-method { padding: .65rem .8rem .7rem; border-block: 1px solid #ccc; font-size: .95rem; line-height: 1.5; }
+.coverage-method > a { display: block; width: min(100%, 12rem); margin: .6rem auto; }
+.coverage-method img { border: 0; }
+.coverage-method dl { margin: 0; padding-top: .4rem; border-top: 1px solid #ddd; }
+.coverage-method dl div { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.coverage-method dl div + div { margin-top: .2rem; }
+.coverage-method dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
 .paper-figure img { max-height: 390px; }
 .research-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; border: 1px solid #ddd; }
 .research-video:focus-visible { outline: 2px solid #174b8b; outline-offset: 3px; }

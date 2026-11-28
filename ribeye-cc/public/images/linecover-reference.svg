@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="432" height="369" viewBox="89 48 432 369">
+  <polygon points="110,400 270,65 500,400" fill="#fafafa"/>
+  <circle cx="121.101" cy="393.000" r="7.000" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="157.581" cy="369.996" r="30.004" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="225.996" cy="326.854" r="73.146" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="271.091" cy="78.957" r="7.000" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="274.366" cy="120.830" r="28.001" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="280.187" cy="195.272" r="65.336" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="486.703" cy="393.000" r="7.000" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="450.214" cy="373.791" r="26.209" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="389.091" cy="341.614" r="58.386" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="298.488" cy="293.917" r="106.083" fill="#356f9a" fill-opacity=".45"/>
+  <circle cx="287.446" cy="288.104" r="111.896" fill="#356f9a" fill-opacity=".45"/>
+  <path d="M121.101,393 L271.091,78.957" stroke="#356f9a" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M271.091,78.957 L486.703,393" stroke="#356f9a" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <path d="M486.703,393 L121.101,393" stroke="#356f9a" stroke-opacity=".45" stroke-width="14.000" stroke-linecap="round"/>
+  <polygon points="110,400 270,65 500,400" fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+</svg>

@@ -12,7 +12,34 @@ const section = (title, content) => `<section><h2>${e(title)}</h2>${content}</se
 
 function publication(work, lang) {
   const { venue, volume, pages } = work.publication;
-  return `<cite>${e(tr(venue, lang))}</cite>, ${e(volume)}, ${lang === 'zh-tw' ? '頁' : 'pp.'} ${e(pages)} (${e(work.year)}).`;
+  const journal = `<cite>${e(tr(venue, lang))}</cite>`;
+  return lang === 'zh-tw'
+    ? `期刊論文，${journal}第 ${e(volume)} 卷，頁 ${e(pages)}（${e(work.year)}）。`
+    : `Journal article · ${journal}, vol. ${e(volume)}, pp. ${e(pages)} (${e(work.year)}).`;
+}
+
+function researchFigure(work, lang) {
+  const figure = work.figure;
+  if (!figure) return '';
+  const zh = lang === 'zh-tw';
+  const href = work.demoRoute ? localUrl(work.demoRoute, lang) : figure.src;
+  const label = work.demoRoute
+    ? (zh ? '開啟互動展示' : 'Open the interactive demo')
+    : (zh ? '查看完整架構圖' : 'View the full-size diagram');
+  const visual = figure.panels ? `<div class="coverage-comparison">${figure.panels.map(panel => `
+      <div class="coverage-method">
+        <strong>${e(tr(panel.title, lang))}</strong>
+        <a href="${e(href)}" aria-label="${e(tr(panel.title, lang))} · ${e(label)}"><img src="${e(panel.src)}" width="432" height="369" alt="${e(tr(panel.alt, lang))}" loading="lazy" decoding="async"></a>
+        <dl>
+          <div><dt>${zh ? '覆蓋重疊率' : 'Coverage overlap'}</dt><dd>${e(panel.overlap)}</dd></div>
+          <div><dt>${zh ? '移動總距離／周長' : 'Total travel / perimeter'}</dt><dd>${e(panel.travelRatio)}</dd></div>
+        </dl>
+      </div>`).join('')}</div>`
+    : `<a href="${e(href)}" aria-label="${e(label)}"><img src="${e(figure.src)}" width="${figure.width}" height="${figure.height}" alt="${e(tr(figure.alt, lang))}" loading="lazy" decoding="async"></a>`;
+  return `<figure class="research-preview"${figure.panels ? ' id="linecover-comparison"' : ''}>
+    ${visual}
+    <figcaption>${e(tr(figure.caption, lang))} ${link(href, label)}</figcaption>
+  </figure>`;
 }
 
 function workEntry(work, lang) {
@@ -23,6 +50,7 @@ function workEntry(work, lang) {
     <p class="entry-metadata">${work.publicationStatus === 'published' ? publication(work, lang) : `${e(tr(work.category, lang))} (${e(work.year)}).`}</p>
     <p class="entry-summary">${e(tr(work.summary, lang))}</p>
     <p class="entry-links">${link(url, zh ? '[詳細內容]' : '[details]')}${work.video ? link(`${url}#video`, zh ? '[介紹影片]' : '[video]') : ''}${workLinks(work, lang)}</p>
+    ${researchFigure(work, lang)}
   </li>`;
 }
 
@@ -33,12 +61,21 @@ function researchEntries(lang, heading = 'h3') {
   </section>`).join('\n');
 }
 
+function technicalSkillsSection(lang) {
+  const zh = lang === 'zh-tw';
+  return section(zh ? '技術能力' : 'Technical skills', `
+      <p><strong>${zh ? '研究領域' : 'Research areas'}:</strong> ${e(profile.researchAreas.join(', '))}.</p>
+      <p><strong>${zh ? '程式語言' : 'Programming languages'}:</strong> ${e(profile.programmingLanguages.join(', '))}.</p>
+      <p><strong>${zh ? '工具' : 'Tools'}:</strong> ${e(profile.tools.join(', '))}.</p>
+      <p>${e(tr(profile.linuxExperience, lang))}</p>`);
+}
+
 export function homePage(lang) {
   const zh = lang === 'zh-tw';
   const body = `<section class="home-intro">${profile.introduction.map(text => `<p>${e(tr(text, lang))}</p>`).join('')}</section>
-    ${section(zh ? '研究興趣' : 'Research interests', `<p class="interests">${e(tr(profile.interests, lang))}</p>`)}
     ${section(zh ? '研究與論文' : 'Research and publications', `${researchEntries(lang)}<p class="small">${link(localUrl('/research', lang), zh ? '研究成果與實驗詳情' : 'Research details and experimental results')}</p>`)}
     ${section(zh ? '軟體作品' : 'Software', list(projects.map(work => workEntry(work, lang))))}
+    ${technicalSkillsSection(lang)}
     ${section(zh ? '學歷' : 'Education', `<ul class="simple-timeline">${profile.education.map(item => `<li><span class="date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong>${tr(item.shortDegree, lang) ? ` — ${e(tr(item.shortDegree, lang))}` : ''}</li>`).join('')}</ul>
       <p><span class="toeic-score" lang="en">TOEIC Listening &amp; Reading: <strong>${e(profile.toeic)}</strong>.</span> <span class="small">${link(localUrl('/about', lang), zh ? '完整履歷' : 'Full CV')}</span></p>`)}
     ${section(zh ? '聯絡方式' : 'Contact', `<p>${zh ? '電子郵件' : 'Email'}: ${emailLink()}</p>`)}`;
@@ -64,7 +101,6 @@ export function aboutPage(lang) {
   const title = zh ? '履歷' : 'Curriculum vitae';
   const description = zh ? `${identity.chineseName}的學歷、論文與研究、技術能力及聯絡方式。` : `Education, research, technical skills, and contact information for ${identity.name}.`;
   const body = `<div class="page-intro"><h1>${e(title)}</h1>
-      <p>${e(zh ? `${identity.chineseName}（${identity.name}）。人工智慧研究、演算法與軟體工程。` : `${identity.name} (${identity.chineseName}). Artificial intelligence research, algorithms, and software engineering.`)}</p>
       <p class="small"><button type="button" class="text-action" data-print>${zh ? '[列印／另存為 PDF]' : '[Print / Save as PDF]'}</button></p>
     </div>
     ${section(zh ? '學歷' : 'Education', `<ul class="cv-list">${profile.education.map(item => `<li><span class="cv-date">${e(item.period)}</span> <strong>${e(tr(item.institution, lang))}</strong>${tr(item.degree, lang) ? ` — ${e(tr(item.degree, lang))}` : ''}</li>`).join('')}</ul>`)}
@@ -72,11 +108,7 @@ export function aboutPage(lang) {
       <li><strong>AcciSAGE</strong> (${e(accisage.year)}). ${e(zh ? '碩士論文與研究稿件，附公開參考實作。' : 'Master’s thesis and research manuscript with a public reference implementation.')} ${link(detailsUrl(accisage, lang), zh ? '[詳情]' : '[details]')}${accisage.thesis ? ` ${link(accisage.thesis.href, zh ? '[碩士論文]' : '[master’s thesis]')}` : ''}${accisage.video ? ` ${link(`${detailsUrl(accisage, lang)}#video`, zh ? '[研究介紹影片]' : '[research video]')}` : ''}</li>
       <li><strong>${e(workTitle(pcb, lang))}</strong> (${e(pcb.year)}). ${e(zh ? `${tr(pcb.publication.venue, lang)}，${pcb.publication.volume}，${pcb.publication.pages} 頁。` : `${tr(pcb.publication.venue, lang)}, ${pcb.publication.volume}, pp. ${pcb.publication.pages}.`)} ${link(detailsUrl(pcb, lang), zh ? '[詳情]' : '[details]')} ${demoLink(pcb, lang)}</li>
     </ul>`)}
-    ${section(zh ? '技術能力' : 'Technical skills', `
-      <p><strong>${zh ? '研究領域' : 'Research areas'}:</strong> ${e(profile.researchAreas.join(', '))}.</p>
-      <p><strong>${zh ? '程式語言' : 'Programming languages'}:</strong> ${e(profile.programmingLanguages.join(', '))}.</p>
-      <p><strong>${zh ? '工具' : 'Tools'}:</strong> ${e(profile.tools.join(', '))}.</p>
-      <p>${e(tr(profile.linuxExperience, lang))}</p>`)}
+    ${technicalSkillsSection(lang)}
     ${section(zh ? '英語能力' : 'English proficiency', `<p>TOEIC Listening &amp; Reading: <strong>${e(profile.toeic)}</strong>.</p>`)}
     ${section(zh ? '聯絡方式' : 'Contact', `<p>Email: ${emailLink()}<br>GitHub: ${identity.github.map(item => link(item.href, item.label)).join(', ')}</p>`)}`;
   return layout({ lang, current: 'about', route: '/about', title, description, print: true }, body);
@@ -116,6 +148,7 @@ export function detailPage(lang, work, article) {
     <div class="page-intro"><h1>${e(work.slug === 'accisage' ? work.title : title)}</h1>${subtitle}${translation}
       <p class="detail-meta">${e(tr(work.category, lang))} · ${e(work.year)} · ${e(work.tags.join(', '))}</p>
       <p>${e(tr(work.summary, lang))}</p>
+      ${work.finding ? `<p>${e(tr(work.finding, lang))}</p>` : ''}
       <p class="detail-links">${work.video ? link('#video', zh ? '[介紹影片]' : '[video]') : ''}${workLinks(work, lang)}</p>
     </div>
     ${videoSection(work, lang)}

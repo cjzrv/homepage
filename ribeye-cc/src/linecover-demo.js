@@ -29,11 +29,9 @@ export function linecoverDemo(lang) {
   </fieldset>`;
   const body=`<a class="back-link" href="${localUrl('/projects/linecover',lang)}">linecover</a>
     <h1>${t('PCB 銅面覆蓋：互動示範','PCB coverage: interactive demonstration')}</h1>
-    <p>${t('比較 V 字形覆蓋法與張維恩等人（2020）的方法。','Compare the V-shaped method with the reference method of Chang et al. (2020).')}</p>
-    <p>${t('兩張圖共用播放控制。先看完整結果，再按「播放」從頭觀察；也可拖曳圖形頂點或隨機產生新案例。','Both panels share playback controls. Start with the complete result, then select Play to watch from the beginning; drag vertices or generate a random shape to explore.')}</p>
+    <p>${t('按「播放」比較同一圖形的兩條筆刷路徑。A 使用本研究的 V 字形覆蓋法，B 使用張維恩等人（2020）的方法。','Select Play to compare two brush paths on the same shape. A uses the V-shaped method and B uses the method of Chang et al. (2020).')}</p>
     <p id="demo-status" role="status" aria-live="polite">${t('正在載入互動示範…','Loading the interactive demonstration…')}</p>
     <noscript><p>${t('互動示範需要 JavaScript 與 WebAssembly；研究方法及原始結果仍可在','This demonstration needs JavaScript and WebAssembly. Read the method and original results on the ')}<a href="${localUrl('/research/pcb-coverage',lang)}">${t('論文介紹頁','research page')}</a>。</p></noscript>
-    ${controls}
     <section class="demo-workspace" aria-labelledby="demo-comparison-heading">
       <h2 id="demo-comparison-heading">${t('覆蓋過程比較','Compare the coverage process')}</h2>
     <fieldset id="demo-playback" disabled>
@@ -59,6 +57,9 @@ export function linecoverDemo(lang) {
         <p id="demo-random-help">${t('隨機按鈕會產生新圖形，沿用目前的筆刷與選項；生成案例可在下方下載 JSON 保存。這些是互動探索案例，並非論文的固定面積隨機樣本。梯形的上下底保持水平，也可展開「頂點與案例檔案」以座標編輯。','The random buttons generate a new shape using the current brush settings and options. Save a generated case as JSON below. These exploratory cases are not the paper’s fixed-area random samples. Trapezoid bases stay horizontal; expand Vertices and case files to edit coordinates.')}</p>
       </details>
     </section>
+    <details class="demo-details demo-editor"><summary>${t('調整設定','Adjust settings')}</summary>
+      ${controls}
+    </details>
     <section class="article-section"><h2>${t('目前案例的計算結果','Computed results for this case')}</h2>
       <p id="demo-zigzag-summary" class="small" aria-live="polite"></p>
       <p>${t('重點比較覆蓋重疊與總移動，兩者均越低越好；較低的數值以粗體標示。減少幅度以 B 為基準計算。','The main comparisons are coverage overlap and total travel: lower is better, with the lower value in bold. Reductions are relative to B.')}</p>
